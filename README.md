@@ -16,17 +16,6 @@ Aquesta proposta inclou:
 
 ---
 
-## 🌐 Solució implementada
-
-### 🔗 Repositori del projecte
-
-[Aquí posa el teu enllaç de GitHub]
-
-### 🔗 URL de la web publicada
-
-[Aquí posa la URL de GitHub Pages]
-
----
 
 ## 💻 Característiques de la web
 
