@@ -32,6 +32,7 @@ header {
   align-items: center;
   padding: 15px 30px;
   background: rgba(0,0,0,0.8);
+  z-index: 10;
 }
 
 /* LOGO */
@@ -73,20 +74,19 @@ nav a:hover {
   align-items: center;
   flex-direction: column;
   text-align: center;
-  animation: fade 0.5s;
   padding-top: 80px;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.6s ease;
 }
 
-.active {
+.page.active {
   display: flex;
+  opacity: 1;
+  transform: translateY(0);
 }
 
-@keyframes fade {
-  from {opacity: 0;}
-  to {opacity: 1;}
-}
-
-/* TEXT */
+/* TITULOS */
 h1 {
   font-size: 3.5em;
 }
@@ -167,8 +167,8 @@ footer {
   </nav>
 
   <div class="logo">
+    <img src="https://cdn-icons-png.flaticon.com/512/2910/2910760.png" alt="logo sostenible">
     <span>FoodLogistic</span>
-    <img src="https://cdn-icons-png.flaticon.com/512/1048/1048315.png">
   </div>
 </header>
 
@@ -184,22 +184,22 @@ footer {
   <div class="services">
 
     <div class="card">
-      <img src="https://images.unsplash.com/photo-1605902711622-cfb43c44367f">
+      <img src="https://images.unsplash.com/photo-1605902711622-cfb43c44367f" alt="Transport refrigerat">
       <p>Transport refrigerat</p>
     </div>
 
     <div class="card">
-      <img src="https://images.unsplash.com/photo-1581090700227-4c4c6c2e0b4d">
+      <img src="https://images.unsplash.com/photo-1581090700227-4c4c6c2e0b4d" alt="Magatzematge intel·ligent">
       <p>Magatzematge intel·ligent</p>
     </div>
 
     <div class="card">
-      <img src="https://images.unsplash.com/photo-1519003722824-194d4455a60c">
+      <img src="https://images.unsplash.com/photo-1519003722824-194d4455a60c" alt="Distribució nacional">
       <p>Distribució nacional</p>
     </div>
 
     <div class="card">
-      <img src="https://images.unsplash.com/photo-1586528116493-6d3b8d4e1e4f">
+      <img src="https://images.unsplash.com/photo-1565372916182-d47029b8b4bb" alt="Seguiment en temps real">
       <p>Seguiment en temps real</p>
     </div>
 
@@ -213,6 +213,7 @@ footer {
     FoodLogistic S.A. és una empresa especialitzada en logística alimentària amb anys d’experiència en el sector.
     Oferim solucions innovadores adaptades a cada client, garantint qualitat, seguretat i eficiència en tota la cadena de distribució.
     Treballem amb tecnologia avançada per assegurar el control total dels productes.
+    El nostre equip està compromès amb la sostenibilitat i l’optimització de recursos per un futur més verd.
   </p>
 </section>
 
@@ -231,8 +232,13 @@ footer {
 
 <script>
 function showPage(id) {
-  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-  document.getElementById(id).classList.add('active');
+  document.querySelectorAll('.page').forEach(p => {
+    p.classList.remove('active');
+    p.style.opacity = 0;
+  });
+  const newPage = document.getElementById(id);
+  newPage.classList.add('active');
+  setTimeout(()=> { newPage.style.opacity = 1; }, 50);
 }
 </script>
 
