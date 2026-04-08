@@ -1,65 +1,217 @@
 <!DOCTYPE html>
 <html lang="ca">
 <head>
-  <meta charset="UTF-8">
-  <title>FoodLogistic S.A.</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FoodLogistic S.A.</title>
 
-  <style>
-    body {
-      font-family: Arial;
-      margin: 0;
-      background: #f4f4f4;
-    }
-    header {
-      background: #2c3e50;
-      color: white;
-      padding: 20px;
-      text-align: center;
-    }
-    nav {
-      background: #34495e;
-      padding: 10px;
-      text-align: center;
-    }
-    nav a {
-      color: white;
-      margin: 10px;
-      text-decoration: none;
-    }
-    section {
-      padding: 20px;
-    }
-    footer {
-      background: #2c3e50;
-      color: white;
-      text-align: center;
-      padding: 10px;
-    }
-  </style>
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+  background: #f5f7fa;
+}
+
+/* HEADER */
+header {
+  background: linear-gradient(135deg, #00c6ff, #0072ff);
+  color: white;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+header h1 {
+  font-size: 3em;
+}
+
+header p {
+  font-size: 1.2em;
+  margin-top: 10px;
+}
+
+/* NAV */
+nav {
+  background: #1e293b;
+  padding: 15px;
+  text-align: center;
+}
+
+nav a {
+  color: white;
+  margin: 0 15px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+nav a:hover {
+  color: #00c6ff;
+}
+
+/* HERO */
+.hero {
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.hero h2 {
+  font-size: 2em;
+  margin-bottom: 10px;
+}
+
+/* SERVEIS */
+.services {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 40px;
+  gap: 20px;
+}
+
+.card {
+  background: white;
+  padding: 20px;
+  border-radius: 15px;
+  width: 280px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  transition: 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+}
+
+.card h3 {
+  margin-bottom: 10px;
+  color: #0072ff;
+}
+
+/* EMPRESA */
+.empresa {
+  background: linear-gradient(135deg, #ff7e5f, #feb47b);
+  color: white;
+  padding: 50px;
+  text-align: center;
+}
+
+/* CONTACTE */
+.contacte {
+  padding: 40px;
+  text-align: center;
+}
+
+form {
+  max-width: 500px;
+  margin: auto;
+}
+
+input, textarea {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+button {
+  background: #0072ff;
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  width: 100%;
+}
+
+button:hover {
+  background: #005edb;
+}
+
+/* FOOTER */
+footer {
+  background: #1e293b;
+  color: white;
+  text-align: center;
+  padding: 20px;
+  margin-top: 30px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .services {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+</style>
+
 </head>
 
 <body>
 
 <header>
   <h1>FoodLogistic S.A.</h1>
-  <p>Solucions logístiques per al sector alimentari</p>
+  <p>Solucions logístiques intel·ligents per al sector alimentari</p>
 </header>
 
 <nav>
-  <a href="#">Inici</a>
-  <a href="#">Serveis</a>
-  <a href="#">Empresa</a>
-  <a href="#">Contacte</a>
+  <a href="#inici">Inici</a>
+  <a href="#serveis">Serveis</a>
+  <a href="#empresa">Empresa</a>
+  <a href="#contacte">Contacte</a>
 </nav>
 
-<section>
-  <h2>Benvinguts</h2>
-  <p>Som especialistes en logística alimentària amb cobertura nacional.</p>
+<section class="hero" id="inici">
+  <h2>Optimitzem la logística del futur</h2>
+  <p>Transport eficient, segur i adaptat a la cadena alimentària</p>
+</section>
+
+<section class="services" id="serveis">
+  <div class="card">
+    <h3>🚚 Transport refrigerat</h3>
+    <p>Distribució controlada per garantir la qualitat dels aliments.</p>
+  </div>
+
+  <div class="card">
+    <h3>📦 Emmagatzematge</h3>
+    <p>Magatzems intel·ligents amb control de temperatura.</p>
+  </div>
+
+  <div class="card">
+    <h3>🌍 Distribució nacional</h3>
+    <p>Arribem a qualsevol punt amb màxima rapidesa.</p>
+  </div>
+
+  <div class="card">
+    <h3>📊 Seguiment en temps real</h3>
+    <p>Control total de la teva mercaderia en tot moment.</p>
+  </div>
+</section>
+
+<section class="empresa" id="empresa">
+  <h2>Sobre nosaltres</h2>
+  <p>FoodLogistic S.A. és una empresa líder en logística alimentària amb anys d’experiència oferint solucions innovadores i eficients.</p>
+</section>
+
+<section class="contacte" id="contacte">
+  <h2>Contacta amb nosaltres</h2>
+
+  <form>
+    <input type="text" placeholder="Nom" required>
+    <input type="email" placeholder="Correu electrònic" required>
+    <textarea rows="5" placeholder="Missatge"></textarea>
+    <button type="submit">Enviar</button>
+  </form>
 </section>
 
 <footer>
-  <p>© 2026 FoodLogistic S.A. | Avís legal | Privacitat</p>
+  <p>© 2026 FoodLogistic S.A.</p>
+  <p>Avís legal | Política de privacitat</p>
 </footer>
 
 <!-- StatCounter -->
@@ -68,8 +220,7 @@ var sc_project=12345678;
 var sc_invisible=1;
 var sc_security="xxxxxxx";
 </script>
-<script type="text/javascript"
-src="https://www.statcounter.com/counter/counter.js" async></script>
+<script src="https://www.statcounter.com/counter/counter.js" async></script>
 
 </body>
 </html>
