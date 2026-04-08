@@ -14,16 +14,9 @@
 }
 
 body {
-  background: #0f172a;
-  color: white;
+  background: #1e293b; /* negro suave */
+  color: #e2e8f0;
   overflow: hidden;
-}
-
-/* TEXT METÀL·LIC */
-.metal {
-  background: linear-gradient(90deg, #d1d5db, #ffffff, #9ca3af);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
 }
 
 /* NAV */
@@ -35,25 +28,27 @@ nav {
   justify-content: center;
   gap: 40px;
   padding: 20px;
-  background: rgba(0,0,0,0.5);
+  background: rgba(30,41,59,0.8);
   backdrop-filter: blur(10px);
+  z-index: 1000;
 }
 
 nav a {
-  color: #4ade80;
+  color: #e2e8f0;
   text-decoration: none;
-  font-weight: bold;
+  font-weight: 500;
   padding: 8px 15px;
   border-radius: 10px;
-  transition: 0.3s;
+  transition: all 0.3s ease;
 }
 
+/* HOVER CONTORNO */
 nav a:hover {
-  border: 2px solid #4ade80;
-  background: rgba(74, 222, 128, 0.1);
+  border: 1px solid #38bdf8;
+  color: #38bdf8;
 }
 
-/* SECCIONS */
+/* SECCIONES */
 .page {
   position: absolute;
   width: 100%;
@@ -64,36 +59,44 @@ nav a:hover {
   flex-direction: column;
   text-align: center;
   opacity: 0;
-  transform: scale(0.95);
-  transition: all 0.5s ease;
+  transform: translateY(20px);
+  transition: all 0.6s ease;
 }
 
-/* ACTIVA */
 .active {
   opacity: 1;
-  transform: scale(1);
-  z-index: 1;
+  transform: translateY(0);
 }
 
-/* INICI */
-#inici {
-  background: linear-gradient(135deg, #064e3b, #16a34a);
+/* TITULOS */
+h1 {
+  font-size: 3.5em;
+  margin-bottom: 15px;
 }
 
-#inici h1 {
-  font-size: 4em;
+h2 {
+  font-size: 2.5em;
+  margin-bottom: 20px;
 }
 
-#inici p {
-  font-size: 1.5em;
+/* BOTONES */
+button {
   margin-top: 20px;
+  padding: 12px 20px;
+  border: 1px solid #38bdf8;
+  background: transparent;
+  color: #38bdf8;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  background: #38bdf8;
+  color: #0f172a;
 }
 
 /* SERVEIS */
-#serveis {
-  background: linear-gradient(135deg, #022c22, #15803d);
-}
-
 .services {
   display: flex;
   gap: 20px;
@@ -102,28 +105,25 @@ nav a:hover {
 }
 
 .card {
-  background: rgba(255,255,255,0.05);
-  padding: 20px;
+  background: #0f172a;
+  padding: 25px;
   border-radius: 15px;
-  width: 250px;
-  transition: 0.3s;
+  width: 260px;
+  transition: all 0.3s ease;
 }
 
+/* HOVER CARDS */
 .card:hover {
-  border: 2px solid #4ade80;
-  transform: scale(1.05);
+  border: 1px solid #38bdf8;
+  transform: translateY(-5px);
 }
 
 /* SOBRE */
-#sobre {
-  background: linear-gradient(135deg, #14532d, #22c55e);
+#sobre p {
+  max-width: 600px;
 }
 
 /* CONTACTE */
-#contacte {
-  background: linear-gradient(135deg, #022c22, #166534);
-}
-
 form {
   width: 300px;
 }
@@ -136,17 +136,8 @@ input, textarea {
   border: none;
 }
 
-button {
-  width: 100%;
-  padding: 10px;
-  background: #4ade80;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-}
-
-button:hover {
-  background: #22c55e;
+input:focus, textarea:focus {
+  outline: 1px solid #38bdf8;
 }
 
 /* FOOTER */
@@ -157,7 +148,7 @@ footer {
   text-align: center;
   padding: 10px;
   font-size: 0.9em;
-  color: #9ca3af;
+  color: #94a3b8;
 }
 </style>
 
@@ -174,38 +165,39 @@ footer {
 
 <!-- INICI -->
 <section id="inici" class="page active">
-  <h1 class="metal">FoodLogistic S.A.</h1>
-  <p class="metal">Logística alimentària sostenible i eficient</p>
+  <h1>FoodLogistic S.A.</h1>
+  <p>Solucions professionals en logística alimentària</p>
+  <button onclick="showPage('serveis')">Veure serveis</button>
 </section>
 
 <!-- SERVEIS -->
 <section id="serveis" class="page">
-  <h2 class="metal">Serveis</h2>
+  <h2>Els nostres serveis</h2>
   <div class="services">
     <div class="card">
-      <h3>🚚 Transport</h3>
-      <p>Distribució refrigerada segura.</p>
+      <h3>Transport refrigerat</h3>
+      <p>Garantim la cadena de fred.</p>
     </div>
     <div class="card">
-      <h3>📦 Magatzem</h3>
-      <p>Control intel·ligent d’estoc.</p>
+      <h3>Emmagatzematge</h3>
+      <p>Magatzems segurs i eficients.</p>
     </div>
     <div class="card">
-      <h3>🌍 Distribució</h3>
-      <p>Cobertura nacional ràpida.</p>
+      <h3>Distribució</h3>
+      <p>Cobertura a nivell nacional.</p>
     </div>
   </div>
 </section>
 
 <!-- SOBRE -->
 <section id="sobre" class="page">
-  <h2 class="metal">Sobre nosaltres</h2>
-  <p>Som especialistes en logística alimentària amb tecnologia avançada i compromís sostenible.</p>
+  <h2>Sobre nosaltres</h2>
+  <p>FoodLogistic S.A. és una empresa amb experiència en logística alimentària, oferint solucions modernes i eficients adaptades a cada client.</p>
 </section>
 
 <!-- CONTACTE -->
 <section id="contacte" class="page">
-  <h2 class="metal">Contacte</h2>
+  <h2>Contacta amb nosaltres</h2>
   <form>
     <input type="text" placeholder="Nom" required>
     <input type="email" placeholder="Correu electrònic" required>
