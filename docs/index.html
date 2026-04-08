@@ -10,27 +10,15 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Segoe UI', sans-serif;
+  font-family: Arial;
   text-transform: uppercase;
 }
 
-/* FONDO ESPACIO */
+/* FONDO ESPACIO REAL */
 body {
-  background: url('https://images.unsplash.com/photo-1446776811953-b23d57bd21aa') no-repeat center center/cover;
-  color: #e2e8f0;
+  background: black url('https://www.transparenttextures.com/patterns/stardust.png');
+  color: white;
   overflow: hidden;
-}
-
-/* CAPA OSCURA */
-body::before {
-  content: "";
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  background: rgba(15,23,42,0.85);
-  top: 0;
-  left: 0;
-  z-index: -1;
 }
 
 /* NAV */
@@ -40,112 +28,84 @@ nav {
   width: 100%;
   display: flex;
   justify-content: center;
-  gap: 40px;
-  padding: 20px;
-  backdrop-filter: blur(10px);
+  gap: 30px;
+  padding: 15px;
+  background: rgba(0,0,0,0.8);
 }
 
 nav a {
-  color: #e2e8f0;
-  text-decoration: none;
+  color: white;
+  cursor: pointer;
   padding: 8px 15px;
-  border-radius: 10px;
   transition: 0.3s;
 }
 
 nav a:hover {
-  border: 1px solid #38bdf8;
-  color: #38bdf8;
+  border: 1px solid cyan;
+  color: cyan;
 }
 
 /* SECCIONES */
 .page {
-  position: absolute;
-  width: 100%;
+  display: none;
   height: 100vh;
-  display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   text-align: center;
-  opacity: 0;
-  transform: translateY(20px);
-  transition: all 0.6s ease;
+  animation: fade 0.5s;
 }
 
 .active {
-  opacity: 1;
-  transform: translateY(0);
+  display: flex;
+}
+
+@keyframes fade {
+  from {opacity: 0;}
+  to {opacity: 1;}
 }
 
 /* TITULOS */
-h1 {
-  font-size: 4em;
-}
-
-h2 {
-  font-size: 2.5em;
-  margin-bottom: 20px;
-}
-
-/* BOTÓN */
-button {
-  margin-top: 20px;
-  padding: 12px 20px;
-  border: 1px solid #38bdf8;
-  background: transparent;
-  color: #38bdf8;
-  border-radius: 8px;
-  cursor: pointer;
-}
-
-button:hover {
-  background: #38bdf8;
-  color: #0f172a;
-}
+h1 {font-size: 3em;}
+h2 {margin-bottom: 20px;}
 
 /* SERVEIS */
 .services {
   display: flex;
   gap: 20px;
   flex-wrap: wrap;
-  justify-content: center;
 }
 
 .card {
-  background: rgba(0,0,0,0.6);
+  background: rgba(255,255,255,0.05);
   padding: 15px;
-  border-radius: 15px;
-  width: 260px;
+  border-radius: 10px;
+  width: 250px;
   transition: 0.3s;
 }
 
 .card img {
   width: 100%;
-  border-radius: 10px;
-  margin-bottom: 10px;
+  border-radius: 8px;
 }
 
 .card:hover {
-  border: 1px solid #38bdf8;
+  border: 1px solid cyan;
   transform: scale(1.05);
 }
 
-/* CONTACTE */
-form {
-  width: 300px;
-}
-
+/* FORM */
 input, textarea {
-  width: 100%;
-  margin: 10px 0;
-  padding: 10px;
-  border-radius: 8px;
-  border: none;
+  width: 250px;
+  margin: 5px;
+  padding: 8px;
 }
 
-input:focus, textarea:focus {
-  outline: 1px solid #38bdf8;
+button {
+  padding: 10px;
+  margin-top: 10px;
+  background: cyan;
+  border: none;
 }
 
 /* FOOTER */
@@ -154,8 +114,7 @@ footer {
   bottom: 0;
   width: 100%;
   text-align: center;
-  padding: 10px;
-  font-size: 0.9em;
+  font-size: 12px;
 }
 </style>
 
@@ -166,79 +125,56 @@ footer {
 <nav>
   <a onclick="showPage('inici')">INICI</a>
   <a onclick="showPage('serveis')">SERVEIS</a>
-  <a onclick="showPage('sobre')">SOBRE NOSALTRES</a>
+  <a onclick="showPage('sobre')">SOBRE</a>
   <a onclick="showPage('contacte')">CONTACTE</a>
 </nav>
 
 <!-- INICI -->
 <section id="inici" class="page active">
   <h1>FOODLOGISTIC S.A.</h1>
-  <p>SOLUCIONS PROFESSIONALS EN LOGÍSTICA ALIMENTÀRIA</p>
-  <button onclick="showPage('serveis')">VEURE SERVEIS</button>
+  <p>LOGÍSTICA ALIMENTÀRIA MODERNA</p>
 </section>
 
 <!-- SERVEIS -->
 <section id="serveis" class="page">
   <h2>SERVEIS</h2>
   <div class="services">
-
     <div class="card">
       <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d">
-      <h3>TRANSPORT</h3>
-      <p>DISTRIBUCIÓ REFRIGERADA SEGURA</p>
+      <p>TRANSPORT</p>
     </div>
-
     <div class="card">
       <img src="https://images.unsplash.com/photo-1553413077-190dd305871c">
-      <h3>MAGATZEM</h3>
-      <p>CONTROL INTEL·LIGENT D'ESTOC</p>
+      <p>MAGATZEM</p>
     </div>
-
-    <div class="card">
-      <img src="https://images.unsplash.com/photo-1506619216599-9d16d0903dfd">
-      <h3>DISTRIBUCIÓ</h3>
-      <p>COBERTURA NACIONAL</p>
-    </div>
-
   </div>
 </section>
 
 <!-- SOBRE -->
 <section id="sobre" class="page">
   <h2>SOBRE NOSALTRES</h2>
-  <p>EMPRESA LÍDER EN LOGÍSTICA ALIMENTÀRIA AMB SOLUCIONS MODERNES I EFICIENTS.</p>
+  <p>EMPRESA DE LOGÍSTICA ALIMENTÀRIA</p>
 </section>
 
 <!-- CONTACTE -->
 <section id="contacte" class="page">
   <h2>CONTACTE</h2>
-  <form>
-    <input type="text" placeholder="NOM" required>
-    <input type="email" placeholder="CORREU ELECTRÒNIC" required>
-    <textarea placeholder="MISSATGE"></textarea>
-    <button type="submit">ENVIAR</button>
-  </form>
+  <input placeholder="NOM">
+  <input placeholder="EMAIL">
+  <textarea placeholder="MISSATGE"></textarea>
+  <button>ENVIAR</button>
 </section>
 
 <footer>
-  <p>© 2026 FOODLOGISTIC S.A.</p>
+  © 2026 FOODLOGISTIC
 </footer>
 
 <script>
-function showPage(pageId) {
-  const pages = document.querySelectorAll('.page');
-  pages.forEach(p => p.classList.remove('active'));
-  document.getElementById(pageId).classList.add('active');
+function showPage(id) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
 }
 </script>
-
-<!-- StatCounter -->
-<script>
-var sc_project=12345678;
-var sc_invisible=1;
-var sc_security="xxxxxxx";
-</script>
-<script src="https://www.statcounter.com/counter/counter.js" async></script>
 
 </body>
 </html>
