@@ -29,7 +29,7 @@ header {
   z-index:10;
 }
 .logo {display:flex;align-items:center;gap:10px;font-size:20px;font-weight:600;}
-.logo img {width:40px;}
+.logo span::before {content: "🌱";}
 nav {display:flex;gap:25px;}
 nav a {
   color:white;text-decoration:none;padding:8px 15px;transition:0.3s;
@@ -60,12 +60,12 @@ p {font-size:1.2em;max-width:600px;}
 .services {display:flex;gap:20px;flex-wrap:wrap;justify-content:center;margin-top:20px;}
 .card {
   background: rgba(255,255,255,0.05);
-  padding: 15px;
+  padding: 20px;
   border-radius: 10px;
-  width: 250px;
+  width: 200px;
   transition:0.3s;
+  font-size: 1.5em;
 }
-.card img {width:100%;border-radius:8px;height:150px;object-fit:cover;}
 .card:hover {border:1px solid cyan;transform: scale(1.05);}
 
 /* FORM */
@@ -88,36 +88,23 @@ footer {position:fixed;bottom:0;width:100%;text-align:center;font-size:12px;}
   </nav>
   <div class="logo">
     <span>FoodLogistic</span>
-    <img src="images/planta.png" alt="planta sostenible">
   </div>
 </header>
 
 <!-- INICI -->
 <section id="inici" class="page active">
   <h1>FoodLogistic S.A.</h1>
-  <p>Solucions modernes i eficients en logística alimentària</p>
+  <p>Solucions modernes i eficients en logística alimentària 🚚🌱📦✨</p>
 </section>
 
 <!-- SERVEIS -->
 <section id="serveis" class="page">
   <h2>Els nostres serveis</h2>
   <div class="services">
-    <div class="card">
-      <img src="images/transport.jpg" alt="Transport refrigerat">
-      <p>Transport refrigerat</p>
-    </div>
-    <div class="card">
-      <img src="images/magatzematge.jpg" alt="Magatzematge intel·ligent">
-      <p>Magatzematge intel·ligent</p>
-    </div>
-    <div class="card">
-      <img src="images/distribucio.jpg" alt="Distribució nacional">
-      <p>Distribució nacional</p>
-    </div>
-    <div class="card">
-      <img src="images/seguiment.jpg" alt="Seguiment en temps real">
-      <p>Seguiment en temps real</p>
-    </div>
+    <div class="card">🚛 Transport refrigerat ❄️</div>
+    <div class="card">🏭 Magatzematge intel·ligent 📦</div>
+    <div class="card">🛣️ Distribució nacional 🌍</div>
+    <div class="card">📡 Seguiment en temps real ⏱️</div>
   </div>
 </section>
 
@@ -125,10 +112,10 @@ footer {position:fixed;bottom:0;width:100%;text-align:center;font-size:12px;}
 <section id="sobre" class="page">
   <h2>Sobre nosaltres</h2>
   <p>
-    FoodLogistic S.A. és una empresa especialitzada en logística alimentària amb anys d’experiència.
-    Oferim solucions innovadores adaptades a cada client, garantint qualitat, seguretat i eficiència.
-    Treballem amb tecnologia avançada per assegurar el control total dels productes.
-    El nostre equip està compromès amb la sostenibilitat i l’optimització de recursos.
+    FoodLogistic S.A. és una empresa especialitzada en logística alimentària amb anys d’experiència.  
+    Oferim solucions innovadores adaptades a cada client, garantint qualitat, seguretat i eficiència.  
+    Treballem amb tecnologia avançada per assegurar el control total dels productes.  
+    El nostre equip està compromès amb la sostenibilitat 🌱 i l’optimització de recursos 🌍.
   </p>
 </section>
 
@@ -138,7 +125,7 @@ footer {position:fixed;bottom:0;width:100%;text-align:center;font-size:12px;}
   <input type="text" placeholder="Nom">
   <input type="email" placeholder="Correu electrònic">
   <textarea placeholder="Missatge"></textarea>
-  <button>Enviar</button>
+  <button>Enviar ✉️</button>
 </section>
 
 <footer>
