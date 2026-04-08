@@ -5,37 +5,57 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>FoodLogistic S.A.</title>
 
+<!-- TIPOGRAFIA MODERNA -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
+
 <style>
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: Arial;
-  text-transform: uppercase;
+  font-family: 'Poppins', sans-serif;
 }
 
-/* FONDO ESPACIO REAL */
 body {
   background: black url('https://www.transparenttextures.com/patterns/stardust.png');
   color: white;
   overflow: hidden;
 }
 
-/* NAV */
-nav {
+/* HEADER */
+header {
   position: fixed;
   top: 0;
   width: 100%;
   display: flex;
-  justify-content: center;
-  gap: 30px;
-  padding: 15px;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
   background: rgba(0,0,0,0.8);
+}
+
+/* LOGO */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.logo img {
+  width: 40px;
+}
+
+/* NAV */
+nav {
+  display: flex;
+  gap: 25px;
 }
 
 nav a {
   color: white;
-  cursor: pointer;
+  text-decoration: none;
   padding: 8px 15px;
   transition: 0.3s;
 }
@@ -45,7 +65,7 @@ nav a:hover {
   color: cyan;
 }
 
-/* SECCIONES */
+/* SECCIONS */
 .page {
   display: none;
   height: 100vh;
@@ -54,6 +74,7 @@ nav a:hover {
   flex-direction: column;
   text-align: center;
   animation: fade 0.5s;
+  padding-top: 80px;
 }
 
 .active {
@@ -65,15 +86,27 @@ nav a:hover {
   to {opacity: 1;}
 }
 
-/* TITULOS */
-h1 {font-size: 3em;}
-h2 {margin-bottom: 20px;}
+/* TEXT */
+h1 {
+  font-size: 3.5em;
+}
+
+h2 {
+  font-size: 2.5em;
+  margin-bottom: 20px;
+}
+
+p {
+  font-size: 1.2em;
+  max-width: 600px;
+}
 
 /* SERVEIS */
 .services {
   display: flex;
   gap: 20px;
   flex-wrap: wrap;
+  justify-content: center;
 }
 
 .card {
@@ -99,6 +132,8 @@ input, textarea {
   width: 250px;
   margin: 5px;
   padding: 8px;
+  border-radius: 5px;
+  border: none;
 }
 
 button {
@@ -106,6 +141,7 @@ button {
   margin-top: 10px;
   background: cyan;
   border: none;
+  cursor: pointer;
 }
 
 /* FOOTER */
@@ -122,51 +158,75 @@ footer {
 
 <body>
 
-<nav>
-  <a onclick="showPage('inici')">INICI</a>
-  <a onclick="showPage('serveis')">SERVEIS</a>
-  <a onclick="showPage('sobre')">SOBRE</a>
-  <a onclick="showPage('contacte')">CONTACTE</a>
-</nav>
+<header>
+  <nav>
+    <a onclick="showPage('inici')">Inici</a>
+    <a onclick="showPage('serveis')">Serveis</a>
+    <a onclick="showPage('sobre')">Sobre nosaltres</a>
+    <a onclick="showPage('contacte')">Contacte</a>
+  </nav>
+
+  <div class="logo">
+    <span>FoodLogistic</span>
+    <img src="https://cdn-icons-png.flaticon.com/512/1048/1048315.png">
+  </div>
+</header>
 
 <!-- INICI -->
 <section id="inici" class="page active">
-  <h1>FOODLOGISTIC S.A.</h1>
-  <p>LOGÍSTICA ALIMENTÀRIA MODERNA</p>
+  <h1>FoodLogistic S.A.</h1>
+  <p>Solucions modernes i eficients en logística alimentària</p>
 </section>
 
 <!-- SERVEIS -->
 <section id="serveis" class="page">
-  <h2>SERVEIS</h2>
+  <h2>Els nostres serveis</h2>
   <div class="services">
+
     <div class="card">
-      <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d">
-      <p>TRANSPORT</p>
+      <img src="https://images.unsplash.com/photo-1605902711622-cfb43c44367f">
+      <p>Transport refrigerat</p>
     </div>
+
     <div class="card">
-      <img src="https://images.unsplash.com/photo-1553413077-190dd305871c">
-      <p>MAGATZEM</p>
+      <img src="https://images.unsplash.com/photo-1581090700227-4c4c6c2e0b4d">
+      <p>Magatzematge intel·ligent</p>
     </div>
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1519003722824-194d4455a60c">
+      <p>Distribució nacional</p>
+    </div>
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1586528116493-6d3b8d4e1e4f">
+      <p>Seguiment en temps real</p>
+    </div>
+
   </div>
 </section>
 
 <!-- SOBRE -->
 <section id="sobre" class="page">
-  <h2>SOBRE NOSALTRES</h2>
-  <p>EMPRESA DE LOGÍSTICA ALIMENTÀRIA</p>
+  <h2>Sobre nosaltres</h2>
+  <p>
+    FoodLogistic S.A. és una empresa especialitzada en logística alimentària amb anys d’experiència en el sector.
+    Oferim solucions innovadores adaptades a cada client, garantint qualitat, seguretat i eficiència en tota la cadena de distribució.
+    Treballem amb tecnologia avançada per assegurar el control total dels productes.
+  </p>
 </section>
 
 <!-- CONTACTE -->
 <section id="contacte" class="page">
-  <h2>CONTACTE</h2>
-  <input placeholder="NOM">
-  <input placeholder="EMAIL">
-  <textarea placeholder="MISSATGE"></textarea>
-  <button>ENVIAR</button>
+  <h2>Contacta amb nosaltres</h2>
+  <input type="text" placeholder="Nom">
+  <input type="email" placeholder="Correu electrònic">
+  <textarea placeholder="Missatge"></textarea>
+  <button>Enviar</button>
 </section>
 
 <footer>
-  © 2026 FOODLOGISTIC
+  © 2026 FoodLogistic S.A.
 </footer>
 
 <script>
