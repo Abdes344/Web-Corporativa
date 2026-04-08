@@ -13,140 +13,124 @@
   font-family: 'Segoe UI', sans-serif;
 }
 
-body {
-  background: #f5f7fa;
-}
-
-/* HEADER */
-header {
-  background: linear-gradient(135deg, #00c6ff, #0072ff);
-  color: white;
-  padding: 60px 20px;
-  text-align: center;
-}
-
-header h1 {
-  font-size: 3em;
-}
-
-header p {
-  font-size: 1.2em;
-  margin-top: 10px;
-}
-
-/* NAV */
+/* NAVBAR */
 nav {
-  background: #1e293b;
-  padding: 15px;
-  text-align: center;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: #0f172a;
+  padding: 15px 30px;
+  display: flex;
+  justify-content: flex-start;
+  gap: 20px;
+  z-index: 1000;
 }
 
 nav a {
   color: white;
-  margin: 0 15px;
   text-decoration: none;
   font-weight: bold;
   transition: 0.3s;
 }
 
 nav a:hover {
-  color: #00c6ff;
+  color: #38bdf8;
 }
 
-/* HERO */
+/* HERO (BIENVENIDA) */
 .hero {
-  padding: 60px 20px;
-  text-align: center;
+  height: 100vh;
+  background: linear-gradient(135deg, #00c6ff, #0072ff);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 80px 40px;
 }
 
-.hero h2 {
-  font-size: 2em;
-  margin-bottom: 10px;
+.hero h1 {
+  font-size: 3.5em;
+}
+
+.hero p {
+  font-size: 1.3em;
+  margin: 20px 0;
+  max-width: 500px;
+}
+
+.hero button {
+  width: 200px;
+  padding: 12px;
+  border: none;
+  background: white;
+  color: #0072ff;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.hero button:hover {
+  background: #e2e8f0;
+}
+
+/* SECCIONS */
+section {
+  padding: 80px 40px;
 }
 
 /* SERVEIS */
 .services {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  padding: 40px;
   gap: 20px;
+  flex-wrap: wrap;
 }
 
 .card {
   background: white;
   padding: 20px;
   border-radius: 15px;
-  width: 280px;
+  width: 260px;
   box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-  transition: 0.3s;
-}
-
-.card:hover {
-  transform: translateY(-10px);
 }
 
 .card h3 {
-  margin-bottom: 10px;
   color: #0072ff;
 }
 
-/* EMPRESA */
-.empresa {
-  background: linear-gradient(135deg, #ff7e5f, #feb47b);
-  color: white;
-  padding: 50px;
-  text-align: center;
+/* SOBRE NOSALTRES */
+.about {
+  background: #f1f5f9;
 }
 
 /* CONTACTE */
-.contacte {
-  padding: 40px;
-  text-align: center;
-}
-
 form {
-  max-width: 500px;
-  margin: auto;
+  max-width: 400px;
 }
 
 input, textarea {
   width: 100%;
-  padding: 10px;
   margin: 10px 0;
-  border-radius: 8px;
-  border: 1px solid #ccc;
+  padding: 10px;
 }
 
-button {
+button.submit {
   background: #0072ff;
   color: white;
   border: none;
-  padding: 12px;
-  border-radius: 8px;
-  cursor: pointer;
-  width: 100%;
-}
-
-button:hover {
-  background: #005edb;
+  padding: 10px;
 }
 
 /* FOOTER */
 footer {
-  background: #1e293b;
+  background: #0f172a;
   color: white;
   text-align: center;
   padding: 20px;
-  margin-top: 30px;
 }
 
-/* RESPONSIVE */
-@media (max-width: 768px) {
-  .services {
-    flex-direction: column;
-    align-items: center;
-  }
+/* ESPACI PER NAV FIX */
+.spacer {
+  height: 60px;
 }
 </style>
 
@@ -154,68 +138,67 @@ footer {
 
 <body>
 
-<header>
-  <h1>FoodLogistic S.A.</h1>
-  <p>Solucions logístiques intel·ligents per al sector alimentari</p>
-</header>
-
+<!-- NAV -->
 <nav>
   <a href="#inici">Inici</a>
   <a href="#serveis">Serveis</a>
-  <a href="#empresa">Empresa</a>
+  <a href="#sobre">Sobre nosaltres</a>
   <a href="#contacte">Contacte</a>
 </nav>
 
+<div class="spacer"></div>
+
+<!-- HERO -->
 <section class="hero" id="inici">
-  <h2>Optimitzem la logística del futur</h2>
-  <p>Transport eficient, segur i adaptat a la cadena alimentària</p>
+  <h1>FoodLogistic S.A.</h1>
+  <p>La teva solució en logística alimentària moderna, eficient i segura.</p>
+  <button onclick="document.getElementById('serveis').scrollIntoView()">Veure serveis</button>
 </section>
 
-<section class="services" id="serveis">
-  <div class="card">
-    <h3>🚚 Transport refrigerat</h3>
-    <p>Distribució controlada per garantir la qualitat dels aliments.</p>
-  </div>
-
-  <div class="card">
-    <h3>📦 Emmagatzematge</h3>
-    <p>Magatzems intel·ligents amb control de temperatura.</p>
-  </div>
-
-  <div class="card">
-    <h3>🌍 Distribució nacional</h3>
-    <p>Arribem a qualsevol punt amb màxima rapidesa.</p>
-  </div>
-
-  <div class="card">
-    <h3>📊 Seguiment en temps real</h3>
-    <p>Control total de la teva mercaderia en tot moment.</p>
+<!-- SERVEIS -->
+<section id="serveis">
+  <h2>Els nostres serveis</h2>
+  <div class="services">
+    <div class="card">
+      <h3>🚚 Transport refrigerat</h3>
+      <p>Distribució segura amb control de temperatura.</p>
+    </div>
+    <div class="card">
+      <h3>📦 Emmagatzematge</h3>
+      <p>Magatzems optimitzats i intel·ligents.</p>
+    </div>
+    <div class="card">
+      <h3>🌍 Distribució</h3>
+      <p>Cobertura a nivell nacional.</p>
+    </div>
   </div>
 </section>
 
-<section class="empresa" id="empresa">
+<!-- SOBRE NOSALTRES -->
+<section class="about" id="sobre">
   <h2>Sobre nosaltres</h2>
-  <p>FoodLogistic S.A. és una empresa líder en logística alimentària amb anys d’experiència oferint solucions innovadores i eficients.</p>
+  <p>Som una empresa especialitzada en logística alimentària amb una gran experiència en el sector. Oferim solucions adaptades a cada client amb tecnologia avançada.</p>
 </section>
 
-<section class="contacte" id="contacte">
+<!-- CONTACTE -->
+<section id="contacte">
   <h2>Contacta amb nosaltres</h2>
-
   <form>
     <input type="text" placeholder="Nom" required>
     <input type="email" placeholder="Correu electrònic" required>
-    <textarea rows="5" placeholder="Missatge"></textarea>
-    <button type="submit">Enviar</button>
+    <textarea placeholder="Missatge"></textarea>
+    <button class="submit">Enviar</button>
   </form>
 </section>
 
+<!-- FOOTER -->
 <footer>
   <p>© 2026 FoodLogistic S.A.</p>
   <p>Avís legal | Política de privacitat</p>
 </footer>
 
 <!-- StatCounter -->
-<script type="text/javascript">
+<script>
 var sc_project=12345678;
 var sc_invisible=1;
 var sc_security="xxxxxxx";
