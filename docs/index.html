@@ -11,12 +11,26 @@
   padding: 0;
   box-sizing: border-box;
   font-family: 'Segoe UI', sans-serif;
+  text-transform: uppercase;
 }
 
+/* FONDO ESPACIO */
 body {
-  background: #1e293b; /* negro suave */
+  background: url('https://images.unsplash.com/photo-1446776811953-b23d57bd21aa') no-repeat center center/cover;
   color: #e2e8f0;
   overflow: hidden;
+}
+
+/* CAPA OSCURA */
+body::before {
+  content: "";
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: rgba(15,23,42,0.85);
+  top: 0;
+  left: 0;
+  z-index: -1;
 }
 
 /* NAV */
@@ -28,21 +42,17 @@ nav {
   justify-content: center;
   gap: 40px;
   padding: 20px;
-  background: rgba(30,41,59,0.8);
   backdrop-filter: blur(10px);
-  z-index: 1000;
 }
 
 nav a {
   color: #e2e8f0;
   text-decoration: none;
-  font-weight: 500;
   padding: 8px 15px;
   border-radius: 10px;
-  transition: all 0.3s ease;
+  transition: 0.3s;
 }
 
-/* HOVER CONTORNO */
 nav a:hover {
   border: 1px solid #38bdf8;
   color: #38bdf8;
@@ -70,8 +80,7 @@ nav a:hover {
 
 /* TITULOS */
 h1 {
-  font-size: 3.5em;
-  margin-bottom: 15px;
+  font-size: 4em;
 }
 
 h2 {
@@ -79,7 +88,7 @@ h2 {
   margin-bottom: 20px;
 }
 
-/* BOTONES */
+/* BOTÓN */
 button {
   margin-top: 20px;
   padding: 12px 20px;
@@ -88,7 +97,6 @@ button {
   color: #38bdf8;
   border-radius: 8px;
   cursor: pointer;
-  transition: 0.3s;
 }
 
 button:hover {
@@ -105,22 +113,22 @@ button:hover {
 }
 
 .card {
-  background: #0f172a;
-  padding: 25px;
+  background: rgba(0,0,0,0.6);
+  padding: 15px;
   border-radius: 15px;
   width: 260px;
-  transition: all 0.3s ease;
+  transition: 0.3s;
 }
 
-/* HOVER CARDS */
+.card img {
+  width: 100%;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
 .card:hover {
   border: 1px solid #38bdf8;
-  transform: translateY(-5px);
-}
-
-/* SOBRE */
-#sobre p {
-  max-width: 600px;
+  transform: scale(1.05);
 }
 
 /* CONTACTE */
@@ -148,7 +156,6 @@ footer {
   text-align: center;
   padding: 10px;
   font-size: 0.9em;
-  color: #94a3b8;
 }
 </style>
 
@@ -157,57 +164,64 @@ footer {
 <body>
 
 <nav>
-  <a onclick="showPage('inici')">Inici</a>
-  <a onclick="showPage('serveis')">Serveis</a>
-  <a onclick="showPage('sobre')">Sobre nosaltres</a>
-  <a onclick="showPage('contacte')">Contacte</a>
+  <a onclick="showPage('inici')">INICI</a>
+  <a onclick="showPage('serveis')">SERVEIS</a>
+  <a onclick="showPage('sobre')">SOBRE NOSALTRES</a>
+  <a onclick="showPage('contacte')">CONTACTE</a>
 </nav>
 
 <!-- INICI -->
 <section id="inici" class="page active">
-  <h1>FoodLogistic S.A.</h1>
-  <p>Solucions professionals en logística alimentària</p>
-  <button onclick="showPage('serveis')">Veure serveis</button>
+  <h1>FOODLOGISTIC S.A.</h1>
+  <p>SOLUCIONS PROFESSIONALS EN LOGÍSTICA ALIMENTÀRIA</p>
+  <button onclick="showPage('serveis')">VEURE SERVEIS</button>
 </section>
 
 <!-- SERVEIS -->
 <section id="serveis" class="page">
-  <h2>Els nostres serveis</h2>
+  <h2>SERVEIS</h2>
   <div class="services">
+
     <div class="card">
-      <h3>Transport refrigerat</h3>
-      <p>Garantim la cadena de fred.</p>
+      <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d">
+      <h3>TRANSPORT</h3>
+      <p>DISTRIBUCIÓ REFRIGERADA SEGURA</p>
     </div>
+
     <div class="card">
-      <h3>Emmagatzematge</h3>
-      <p>Magatzems segurs i eficients.</p>
+      <img src="https://images.unsplash.com/photo-1553413077-190dd305871c">
+      <h3>MAGATZEM</h3>
+      <p>CONTROL INTEL·LIGENT D'ESTOC</p>
     </div>
+
     <div class="card">
-      <h3>Distribució</h3>
-      <p>Cobertura a nivell nacional.</p>
+      <img src="https://images.unsplash.com/photo-1506619216599-9d16d0903dfd">
+      <h3>DISTRIBUCIÓ</h3>
+      <p>COBERTURA NACIONAL</p>
     </div>
+
   </div>
 </section>
 
 <!-- SOBRE -->
 <section id="sobre" class="page">
-  <h2>Sobre nosaltres</h2>
-  <p>FoodLogistic S.A. és una empresa amb experiència en logística alimentària, oferint solucions modernes i eficients adaptades a cada client.</p>
+  <h2>SOBRE NOSALTRES</h2>
+  <p>EMPRESA LÍDER EN LOGÍSTICA ALIMENTÀRIA AMB SOLUCIONS MODERNES I EFICIENTS.</p>
 </section>
 
 <!-- CONTACTE -->
 <section id="contacte" class="page">
-  <h2>Contacta amb nosaltres</h2>
+  <h2>CONTACTE</h2>
   <form>
-    <input type="text" placeholder="Nom" required>
-    <input type="email" placeholder="Correu electrònic" required>
-    <textarea placeholder="Missatge"></textarea>
-    <button type="submit">Enviar</button>
+    <input type="text" placeholder="NOM" required>
+    <input type="email" placeholder="CORREU ELECTRÒNIC" required>
+    <textarea placeholder="MISSATGE"></textarea>
+    <button type="submit">ENVIAR</button>
   </form>
 </section>
 
 <footer>
-  <p>© 2026 FoodLogistic S.A.</p>
+  <p>© 2026 FOODLOGISTIC S.A.</p>
 </footer>
 
 <script>
