@@ -9,7 +9,13 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
 
 <style>
-* {margin:0;padding:0;box-sizing:border-box;font-family:'Poppins', sans-serif;}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
 body {
   background: black url('https://www.transparenttextures.com/patterns/stardust.png');
   color: white;
@@ -19,22 +25,46 @@ body {
 /* HEADER */
 header {
   position: fixed;
-  top:0;
-  width:100%;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  padding:15px 30px;
+  top: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
   background: rgba(0,0,0,0.8);
-  z-index:10;
+  z-index: 10;
 }
-.logo {display:flex;align-items:center;gap:10px;font-size:20px;font-weight:600;}
-.logo img {width:40px;}
-nav {display:flex;gap:25px;}
+
+/* LOGO */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.logo img {
+  width: 40px;
+}
+
+/* NAV */
+nav {
+  display: flex;
+  gap: 25px;
+}
+
 nav a {
-  color:white;text-decoration:none;padding:8px 15px;transition:0.3s;
+  color: white;
+  text-decoration: none;
+  padding: 8px 15px;
+  transition: 0.3s;
 }
-nav a:hover {border:1px solid cyan;color:cyan;}
+
+nav a:hover {
+  border: 1px solid cyan;
+  color: cyan;
+}
 
 /* SECCIONS */
 .page {
@@ -45,38 +75,89 @@ nav a:hover {border:1px solid cyan;color:cyan;}
   flex-direction: column;
   text-align: center;
   padding-top: 80px;
-  opacity:0;
+  opacity: 0;
   transform: translateY(30px);
   transition: all 0.6s ease;
 }
-.page.active {display:flex;opacity:1;transform: translateY(0);}
+
+.page.active {
+  display: flex;
+  opacity: 1;
+  transform: translateY(0);
+}
 
 /* TITULOS */
-h1 {font-size:3.5em;}
-h2 {font-size:2.5em;margin-bottom:20px;}
-p {font-size:1.2em;max-width:600px;}
+h1 {
+  font-size: 3.5em;
+}
+
+h2 {
+  font-size: 2.5em;
+  margin-bottom: 20px;
+}
+
+p {
+  font-size: 1.2em;
+  max-width: 600px;
+}
 
 /* SERVEIS */
-.services {display:flex;gap:20px;flex-wrap:wrap;justify-content:center;}
+.services {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
 .card {
   background: rgba(255,255,255,0.05);
   padding: 15px;
   border-radius: 10px;
   width: 250px;
-  transition:0.3s;
+  transition: 0.3s;
 }
-.card img {width:100%;border-radius:8px;height:150px;object-fit:cover;}
-.card:hover {border:1px solid cyan;transform: scale(1.05);}
+
+.card img {
+  width: 100%;
+  border-radius: 8px;
+  height: 150px;
+  object-fit: cover;
+}
+
+.card:hover {
+  border: 1px solid cyan;
+  transform: scale(1.05);
+}
 
 /* FORM */
-input, textarea {width:250px;margin:5px;padding:8px;border-radius:5px;border:none;}
-button {padding:10px;margin-top:10px;background:cyan;border:none;cursor:pointer;}
+input, textarea {
+  width: 250px;
+  margin: 5px;
+  padding: 8px;
+  border-radius: 5px;
+  border: none;
+}
+
+button {
+  padding: 10px;
+  margin-top: 10px;
+  background: cyan;
+  border: none;
+  cursor: pointer;
+}
 
 /* FOOTER */
-footer {position:fixed;bottom:0;width:100%;text-align:center;font-size:12px;}
+footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  font-size: 12px;
+}
 </style>
 
 </head>
+
 <body>
 
 <header>
@@ -86,9 +167,10 @@ footer {position:fixed;bottom:0;width:100%;text-align:center;font-size:12px;}
     <a onclick="showPage('sobre')">Sobre nosaltres</a>
     <a onclick="showPage('contacte')">Contacte</a>
   </nav>
+
   <div class="logo">
     <span>FoodLogistic</span>
-    <!-- LOGO PLANTA SOSTENIBLE -->
+    <!-- LOGO SOSTENIBLE: PLANTA -->
     <img src="https://cdn-icons-png.flaticon.com/512/685/685352.png" alt="planta sostenible">
   </div>
 </header>
@@ -103,22 +185,27 @@ footer {position:fixed;bottom:0;width:100%;text-align:center;font-size:12px;}
 <section id="serveis" class="page">
   <h2>Els nostres serveis</h2>
   <div class="services">
+
     <div class="card">
-      <img src="https://images.unsplash.com/photo-1579630413643-8cb0c4181b48?auto=format&fit=crop&w=500&q=60" alt="Transport refrigerat">
+      <img src="https://www.multi-trans.eu/wp-content/uploads/2023/05/ingeniero-control-equipos-sistema-control-caja-contenedores-refrigerados-patio-scaled.jpeg">
       <p>Transport refrigerat</p>
     </div>
+
     <div class="card">
-      <img src="https://images.unsplash.com/photo-1600185366044-88f423f9d73f?auto=format&fit=crop&w=500&q=60" alt="Magatzematge intel·ligent">
+      <img src="https://file.cdnfile.io/upload/p/5480/image_other/2026-01/intelligent-warehousing-racks-4.jpg">
       <p>Magatzematge intel·ligent</p>
     </div>
+
     <div class="card">
-      <img src="https://images.unsplash.com/photo-1592409181551-94d026176238?auto=format&fit=crop&w=500&q=60" alt="Distribució nacional">
+      <img src="https://images.unsplash.com/photo-1519003722824-194d4455a60c" alt="Distribució nacional">
       <p>Distribució nacional</p>
     </div>
+
     <div class="card">
-      <img src="https://images.unsplash.com/photo-1581091870623-f2c3e933598f?auto=format&fit=crop&w=500&q=60" alt="Seguiment en temps real">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3cTgiVe94IIKLkkIMSnvCFlFt7KIBpNsrOQ&s">
       <p>Seguiment en temps real</p>
     </div>
+
   </div>
 </section>
 
@@ -126,10 +213,10 @@ footer {position:fixed;bottom:0;width:100%;text-align:center;font-size:12px;}
 <section id="sobre" class="page">
   <h2>Sobre nosaltres</h2>
   <p>
-    FoodLogistic S.A. és una empresa especialitzada en logística alimentària amb anys d’experiència.
-    Oferim solucions innovadores adaptades a cada client, garantint qualitat, seguretat i eficiència.
+    FoodLogistic S.A. és una empresa especialitzada en logística alimentària amb anys d’experiència en el sector.
+    Oferim solucions innovadores adaptades a cada client, garantint qualitat, seguretat i eficiència en tota la cadena de distribució.
     Treballem amb tecnologia avançada per assegurar el control total dels productes.
-    El nostre equip està compromès amb la sostenibilitat i l’optimització de recursos.
+    El nostre equip està compromès amb la sostenibilitat i l’optimització de recursos per un futur més verd.
   </p>
 </section>
 
