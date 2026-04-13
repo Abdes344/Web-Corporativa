@@ -9,6 +9,7 @@
 
 <style>
 * {margin:0;padding:0;box-sizing:border-box;font-family:'Poppins', sans-serif;}
+
 body {
   background: black url('https://www.transparenttextures.com/patterns/stardust.png');
   color: white;
@@ -26,10 +27,12 @@ header {
   background: rgba(0,0,0,0.8);
   z-index:10;
 }
+
 .logo {display:flex;align-items:center;gap:10px;font-size:20px;font-weight:600;}
 .logo span::before {content: "🌱";}
+
 nav {display:flex;gap:25px;}
-nav a {color:white;text-decoration:none;padding:8px 15px;transition:0.3s;}
+nav a {color:white;text-decoration:none;padding:8px 15px;transition:0.3s;cursor:pointer;}
 nav a:hover {border:1px solid cyan;color:cyan;}
 
 .page {
@@ -44,6 +47,7 @@ nav a:hover {border:1px solid cyan;color:cyan;}
   transform: translateY(30px);
   transition: all 0.6s ease;
 }
+
 .page.active {display:flex;opacity:1;transform: translateY(0);}
 
 h1 {font-size:3.5em;}
@@ -51,6 +55,7 @@ h2 {font-size:2.5em;margin-bottom:20px;}
 p {font-size:1.2em;max-width:700px;}
 
 .services {display:flex;gap:20px;flex-wrap:wrap;justify-content:center;margin-top:20px;}
+
 .card {
   background: rgba(255,255,255,0.05);
   padding: 20px;
@@ -59,14 +64,35 @@ p {font-size:1.2em;max-width:700px;}
   transition:0.3s;
   font-size: 1.5em;
 }
+
 .card:hover {border:1px solid cyan;transform: scale(1.05);}
 
-input, textarea {width:250px;margin:5px;padding:8px;border-radius:5px;border:none;}
-button {padding:10px;margin-top:10px;background:cyan;border:none;cursor:pointer;}
+input, textarea {
+  width:250px;
+  margin:5px;
+  padding:8px;
+  border-radius:5px;
+  border:none;
+}
 
-footer {position:fixed;bottom:0;width:100%;text-align:center;font-size:12px;}
+button {
+  padding:10px;
+  margin-top:10px;
+  background:cyan;
+  border:none;
+  cursor:pointer;
+}
 
-/* 🍪 COOKIE BANNER FIX */
+/* FOOTER */
+footer {
+  position:fixed;
+  bottom:0;
+  width:100%;
+  text-align:center;
+  font-size:12px;
+}
+
+/* 🍪 COOKIE BANNER */
 .cookie-banner {
   position: fixed;
   bottom: 20px;
@@ -78,14 +104,16 @@ footer {position:fixed;bottom:0;width:100%;text-align:center;font-size:12px;}
   border-radius: 10px;
   z-index: 9999;
   text-align:center;
-  display:block;
+  width: 320px;
 }
+
 .cookie-banner button {
   margin:5px;
 }
 </style>
 
 </head>
+
 <body>
 
 <header>
@@ -96,6 +124,7 @@ footer {position:fixed;bottom:0;width:100%;text-align:center;font-size:12px;}
     <a onclick="showPage('contacte')">Contacte</a>
     <a onclick="showPage('avis')">Avís legal</a>
   </nav>
+
   <div class="logo">
     <span>FoodLogistic</span>
   </div>
@@ -118,10 +147,10 @@ footer {position:fixed;bottom:0;width:100%;text-align:center;font-size:12px;}
 
 <section id="sobre" class="page">
   <h2>Sobre nosaltres</h2>
-  <p> FoodLogistic S.A. és una empresa especialitzada en logística alimentària amb anys d’experiència.  
-    Oferim solucions innovadores adaptades a cada client, garantint qualitat, seguretat i eficiència.  
-    Treballem amb tecnologia avançada per assegurar el control total dels productes.  
-    El nostre equip està compromès amb la sostenibilitat 🌱 i l’optimització de recursos 🌍. </p>
+  <p>
+    FoodLogistic S.A. és una empresa especialitzada en logística alimentària amb anys d’experiència.
+    Oferim solucions innovadores adaptades a cada client.
+  </p>
 </section>
 
 <section id="contacte" class="page">
@@ -132,26 +161,40 @@ footer {position:fixed;bottom:0;width:100%;text-align:center;font-size:12px;}
   <button>Enviar ✉️</button>
 </section>
 
-<!-- 🔴 AVÍS LEGAL (NO TOCADO) -->
 <section id="avis" class="page">
   <h2>Avís legal</h2>
-
-  <p><strong>Política de privacitat</strong><br>
-  Les dades personals recollides mitjançant aquest lloc web seran tractades amb confidencialitat i d'acord amb la normativa vigent.</p>
-
+  <p><strong>Política de privacitat</strong><br>Les dades es tracten amb confidencialitat.</p>
   <br>
-
-  <p><strong>Política de cookies</strong><br>
-  Aquest lloc web utilitza cookies per millorar l'experiència de l'usuari i analitzar el trànsit.</p>
-
+  <p><strong>Política de cookies</strong><br>Utilitzem cookies per millorar l'experiència.</p>
 </section>
-
 
 <!-- 🍪 COOKIE BANNER -->
 <div id="cookieBanner" class="cookie-banner">
-  <p>Aquest lloc web utilitza cookies 🍪</p>
-  <button onclick="acceptCookies()">Acceptar</button>
-  <button onclick="rejectCookies()">Rebutjar</button>
+  <p><strong>Aquest lloc utilitza cookies 🍪</strong></p>
+
+  <div style="text-align:left;font-size:13px;margin-top:10px;">
+    <label>
+      <input type="checkbox" checked disabled>
+      Necessàries (obligatòries)
+    </label>
+    <br>
+
+    <label>
+      <input type="checkbox" id="analyticsCookies">
+      Analítiques
+    </label>
+    <br>
+
+    <label>
+      <input type="checkbox" id="marketingCookies">
+      Màrqueting
+    </label>
+  </div>
+
+  <div>
+    <button onclick="saveCookiePreferences()">Guardar selecció</button>
+    <button onclick="rejectCookies()">Rebutjar totes</button>
+  </div>
 </div>
 
 <footer>
@@ -164,19 +207,29 @@ function showPage(id) {
     p.classList.remove('active');
     p.style.opacity = 0;
   });
-  const newPage = document.getElementById(id);
-  newPage.classList.add('active');
-  setTimeout(()=> { newPage.style.opacity = 1; }, 50);
+  const page = document.getElementById(id);
+  page.classList.add('active');
+  setTimeout(() => page.style.opacity = 1, 50);
 }
 
-/* 🍪 SIEMPRE VISIBLE */
-function acceptCookies() {
+/* 🍪 GUARDAR PREFERÈNCIES */
+function saveCookiePreferences() {
+  const analytics = document.getElementById("analyticsCookies").checked;
+  const marketing = document.getElementById("marketingCookies").checked;
+
   localStorage.setItem("cookiesAccepted", "true");
+  localStorage.setItem("cookies_analytics", analytics);
+  localStorage.setItem("cookies_marketing", marketing);
+
   document.getElementById("cookieBanner").style.display = "none";
 }
 
+/* ❌ REBUTJAR */
 function rejectCookies() {
-  localStorage.removeItem("cookiesAccepted");
+  localStorage.setItem("cookiesAccepted", "false");
+  localStorage.setItem("cookies_analytics", "false");
+  localStorage.setItem("cookies_marketing", "false");
+
   document.getElementById("cookieBanner").style.display = "none";
 }
 </script>
