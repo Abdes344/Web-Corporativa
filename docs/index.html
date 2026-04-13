@@ -66,18 +66,21 @@ button {padding:10px;margin-top:10px;background:cyan;border:none;cursor:pointer;
 
 footer {position:fixed;bottom:0;width:100%;text-align:center;font-size:12px;}
 
-/* Banner cookies */
+/* 🍪 Banner cookies */
 .cookie-banner {
   position: fixed;
   bottom: 20px;
   left: 50%;
   transform: translateX(-50%);
   background: black;
-  padding: 15px;
+  padding: 20px;
   border: 1px solid cyan;
   border-radius: 10px;
-  display: none;
   z-index: 999;
+  text-align:center;
+}
+.cookie-banner button {
+  margin:5px;
 }
 </style>
 
@@ -90,7 +93,7 @@ footer {position:fixed;bottom:0;width:100%;text-align:center;font-size:12px;}
     <a onclick="showPage('serveis')">Serveis</a>
     <a onclick="showPage('sobre')">Sobre nosaltres</a>
     <a onclick="showPage('contacte')">Contacte</a>
-    <a onclick="showPage('avis')">Avís legal</a> <!-- AÑADIDO -->
+    <a onclick="showPage('avis')">Avís legal</a>
   </nav>
   <div class="logo">
     <span>FoodLogistic</span>
@@ -114,10 +117,7 @@ footer {position:fixed;bottom:0;width:100%;text-align:center;font-size:12px;}
 
 <section id="sobre" class="page">
   <h2>Sobre nosaltres</h2>
-  <p>
-    FoodLogistic S.A. és una empresa especialitzada en logística alimentària amb anys d’experiència.  
-    Oferim solucions innovadores adaptades a cada client, garantint qualitat, seguretat i eficiència.  
-  </p>
+  <p>FoodLogistic S.A. és una empresa especialitzada en logística alimentària.</p>
 </section>
 
 <section id="contacte" class="page">
@@ -128,33 +128,18 @@ footer {position:fixed;bottom:0;width:100%;text-align:center;font-size:12px;}
   <button>Enviar ✉️</button>
 </section>
 
-<!-- 🔥 NUEVA PÁGINA COMPLETA -->
 <section id="avis" class="page">
   <h2>Avís legal</h2>
-
-  <p><strong>Titular del lloc web</strong><br>
-  FoodLogistic S.A.<br>
-  CIF: XXXXXXXXX<br>
-  Correu: info@foodlogistic.com</p>
-
+  <p><strong>Política de privacitat</strong><br>Dades tractades segons RGPD.</p>
   <br>
-
-  <p><strong>Política de privacitat</strong><br>
-  D'acord amb el RGPD, les dades personals seran tractades amb finalitat de contacte i gestió de serveis.  
-  L'usuari pot exercir els seus drets d'accés, rectificació i eliminació.</p>
-
-  <br>
-
-  <p><strong>Política de cookies</strong><br>
-  Aquest lloc utilitza cookies pròpies i de tercers per millorar l'experiència.  
-  Pots acceptar-les o rebutjar-les mitjançant el banner.</p>
-
+  <p><strong>Política de cookies</strong><br>Aquest lloc utilitza cookies.</p>
 </section>
 
-<!-- 🍪 BANNER REAL -->
+<!-- 🍪 Banner -->
 <div id="cookieBanner" class="cookie-banner">
-  Utilitzem cookies per millorar la teva experiència 🍪
+  <p>Aquest lloc web utilitza cookies 🍪</p>
   <button onclick="acceptCookies()">Acceptar</button>
+  <button onclick="rejectCookies()">Rebutjar</button>
 </div>
 
 <footer>
@@ -172,15 +157,18 @@ function showPage(id) {
   setTimeout(()=> { newPage.style.opacity = 1; }, 50);
 }
 
-/* cookies */
+/* 🍪 SIEMPRE mostrar */
 window.onload = function() {
-  if (!localStorage.getItem("cookiesAccepted")) {
-    document.getElementById("cookieBanner").style.display = "block";
-  }
+  document.getElementById("cookieBanner").style.display = "block";
 }
 
 function acceptCookies() {
   localStorage.setItem("cookiesAccepted", "true");
+  document.getElementById("cookieBanner").style.display = "none";
+}
+
+function rejectCookies() {
+  localStorage.removeItem("cookiesAccepted");
   document.getElementById("cookieBanner").style.display = "none";
 }
 </script>
