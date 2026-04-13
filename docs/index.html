@@ -66,7 +66,7 @@ button {padding:10px;margin-top:10px;background:cyan;border:none;cursor:pointer;
 
 footer {position:fixed;bottom:0;width:100%;text-align:center;font-size:12px;}
 
-/* 🍪 COOKIE BANNER (ARREGLADO) */
+/* 🍪 COOKIE BANNER FIX */
 .cookie-banner {
   position: fixed;
   bottom: 20px;
@@ -78,7 +78,7 @@ footer {position:fixed;bottom:0;width:100%;text-align:center;font-size:12px;}
   border-radius: 10px;
   z-index: 9999;
   text-align:center;
-  display: block;
+  display:block;
 }
 .cookie-banner button {
   margin:5px;
@@ -129,6 +129,7 @@ footer {position:fixed;bottom:0;width:100%;text-align:center;font-size:12px;}
   <button>Enviar ✉️</button>
 </section>
 
+<!-- 🔴 AVÍS LEGAL (NO TOCADO) -->
 <section id="avis" class="page">
   <h2>Avís legal</h2>
   <p><strong>Política de privacitat</strong><br>Dades tractades segons RGPD.</p>
@@ -136,7 +137,7 @@ footer {position:fixed;bottom:0;width:100%;text-align:center;font-size:12px;}
   <p><strong>Política de cookies</strong><br>Aquest lloc utilitza cookies.</p>
 </section>
 
-<!-- 🍪 BANNER FUNCIONAL -->
+<!-- 🍪 COOKIE BANNER -->
 <div id="cookieBanner" class="cookie-banner">
   <p>Aquest lloc web utilitza cookies 🍪</p>
   <button onclick="acceptCookies()">Acceptar</button>
@@ -158,7 +159,7 @@ function showPage(id) {
   setTimeout(()=> { newPage.style.opacity = 1; }, 50);
 }
 
-/* 🍪 SIEMPRE SE MUESTRA AL ENTRAR */
+/* 🍪 SIEMPRE VISIBLE */
 function acceptCookies() {
   localStorage.setItem("cookiesAccepted", "true");
   document.getElementById("cookieBanner").style.display = "none";
