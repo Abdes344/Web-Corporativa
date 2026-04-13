@@ -5,44 +5,58 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>FoodLogistic S.A.</title>
 
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
+
 <style>
+* {margin:0;padding:0;box-sizing:border-box;font-family:'Poppins', sans-serif;}
+
 body {
-  font-family: Arial;
-  margin:0;
-  background:#111;
+  background:black;
   color:white;
+  overflow-x:hidden;
 }
 
 header {
   position:fixed;
   top:0;
   width:100%;
-  background:#000;
-  padding:15px;
+  display:flex;
+  justify-content:space-between;
+  padding:15px 30px;
+  background:rgba(0,0,0,0.8);
+  z-index:10;
 }
 
 nav a {
   color:white;
-  margin-right:15px;
+  margin:0 10px;
   cursor:pointer;
+  text-decoration:none;
 }
 
+nav a:hover {color:cyan;}
+
+/* 🔥 FIX IMPORTANT: NO DISPLAY NONE AQUÍ */
 .page {
   display:none;
-  padding-top:100px;
-  text-align:center;
   min-height:100vh;
+  justify-content:center;
+  align-items:center;
+  flex-direction:column;
+  text-align:center;
+  padding-top:80px;
 }
 
+/* SOLO ESTA CLASE CONTROLA VISIBILIDAD */
 .page.active {
-  display:block;
+  display:flex;
 }
 
 input, textarea {
   display:block;
-  margin:10px auto;
-  padding:8px;
   width:250px;
+  margin:8px auto;
+  padding:8px;
 }
 
 button {
@@ -51,6 +65,7 @@ button {
   border:none;
   cursor:pointer;
 }
+
 </style>
 </head>
 
@@ -66,7 +81,7 @@ button {
 <!-- INICI -->
 <section id="inici" class="page active">
   <h1>FoodLogistic S.A.</h1>
-  <p>Logística alimentària 🚚</p>
+  <p>Logística alimentària moderna 🚚</p>
 </section>
 
 <!-- CONTACTE -->
@@ -82,13 +97,14 @@ button {
 
 <!-- ÈXIT -->
 <section id="enviat" class="page">
-  <h2>✅ Missatge enviat amb èxit</h2>
-  <p>Gràcies per contactar amb nosaltres</p>
-
-  <button onclick="showPage('inici')">Tornar</button>
+  <h2>✅ Missatge enviat amb èxit!</h2>
+  <p>Gràcies per contactar amb nosaltres.</p>
+  <button onclick="showPage('inici')">Tornar a l'inici</button>
 </section>
 
 <script>
+
+/* 🔥 FIX IMPORTANT: NO USES display inline JS */
 function showPage(id) {
   document.querySelectorAll('.page').forEach(p => {
     p.classList.remove('active');
@@ -98,17 +114,22 @@ function showPage(id) {
 }
 
 function enviarMissatge() {
-  const inputs = document.querySelectorAll("#contacte input, #contacte textarea");
+  const nom = document.querySelector("#contacte input[type='text']");
+  const email = document.querySelector("#contacte input[type='email']");
+  const msg = document.querySelector("#contacte textarea");
 
-  if (!inputs[0].value || !inputs[1].value || !inputs[2].value) {
+  if (!nom.value || !email.value || !msg.value) {
     alert("Omple tots els camps");
     return;
   }
 
-  inputs.forEach(i => i.value = "");
+  nom.value = "";
+  email.value = "";
+  msg.value = "";
 
   showPage("enviat");
 }
+
 </script>
 
 </body>
