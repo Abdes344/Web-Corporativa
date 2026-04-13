@@ -158,7 +158,14 @@ footer {
   <input type="text" placeholder="Nom">
   <input type="email" placeholder="Correu electrònic">
   <textarea placeholder="Missatge"></textarea>
-  <button>Enviar ✉️</button>
+  <button onclick="enviarFormulari()">Enviar ✉️</button>
+</section>
+
+<!-- PÀGINA GRÀCIES -->
+<section id="gracies" class="page">
+  <h2>Gràcies per contactar amb nosaltres! 🎉</h2>
+  <p>Hem rebut el teu missatge i et respondrem el més aviat possible.</p>
+  <button onclick="showPage('inici')">Tornar a l'inici</button>
 </section>
 
 <!-- AVÍS LEGAL -->
@@ -211,6 +218,10 @@ function showPage(id) {
   const page = document.getElementById(id);
   page.classList.add('active');
   setTimeout(() => page.style.opacity = 1, 50);
+}
+
+function enviarFormulari() {
+  showPage('gracies');
 }
 
 function saveCookiePreferences() {
