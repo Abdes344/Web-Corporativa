@@ -11,85 +11,60 @@
 * {margin:0;padding:0;box-sizing:border-box;font-family:'Poppins', sans-serif;}
 
 body {
-  background: black url('https://www.transparenttextures.com/patterns/stardust.png');
-  color: white;
-  overflow-x: hidden;
+  background:black;
+  color:white;
+  overflow-x:hidden;
 }
 
 header {
-  position: fixed;
+  position:fixed;
   top:0;
   width:100%;
   display:flex;
   justify-content:space-between;
-  align-items:center;
   padding:15px 30px;
-  background: rgba(0,0,0,0.8);
+  background:rgba(0,0,0,0.8);
   z-index:10;
 }
 
-.logo {display:flex;align-items:center;gap:10px;font-size:20px;font-weight:600;}
-.logo span::before {content: "🌱";}
-
-nav {display:flex;gap:25px;}
-nav a {color:white;text-decoration:none;padding:8px 15px;cursor:pointer;}
-nav a:hover {border:1px solid cyan;color:cyan;}
-
-.page {
-  display: none;
-  min-height: 100vh;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  text-align: center;
-  padding: 90px 20px 60px;
-  opacity:0;
-  transform: translateY(30px);
-  transition: all 0.6s ease;
+nav a {
+  color:white;
+  margin:0 10px;
+  cursor:pointer;
+  text-decoration:none;
 }
 
-.page.active {display:flex;opacity:1;transform: translateY(0);}
+nav a:hover {color:cyan;}
 
-h1 {font-size:3.5em;}
-h2 {font-size:2.5em;margin-bottom:20px;}
-p {font-size:1.1em;max-width:800px;line-height:1.6;}
+.page {
+  display:none;
+  min-height:100vh;
+  justify-content:center;
+  align-items:center;
+  flex-direction:column;
+  text-align:center;
+  padding-top:80px;
+}
+
+.page.active {
+  display:flex;
+}
 
 input, textarea {
+  display:block;
   width:250px;
-  margin:5px;
+  margin:8px auto;
   padding:8px;
-  border-radius:5px;
-  border:none;
 }
 
 button {
   padding:10px;
-  margin-top:10px;
   background:cyan;
   border:none;
   cursor:pointer;
 }
 
-/* COOKIE */
-.cookie-banner {
-  position: fixed;
-  bottom: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-  background: black;
-  padding: 20px;
-  border: 1px solid cyan;
-  border-radius: 10px;
-  z-index: 9999;
-  text-align:center;
-  width: 340px;
-}
-
-.cookie-banner button {
-  margin:5px;
-}
 </style>
-
 </head>
 
 <body>
@@ -97,33 +72,14 @@ button {
 <header>
   <nav>
     <a onclick="showPage('inici')">Inici</a>
-    <a onclick="showPage('serveis')">Serveis</a>
-    <a onclick="showPage('sobre')">Sobre nosaltres</a>
     <a onclick="showPage('contacte')">Contacte</a>
-    <a onclick="showPage('avis')">Avís legal</a>
   </nav>
-
-  <div class="logo">
-    <span>FoodLogistic</span>
-  </div>
 </header>
 
 <!-- INICI -->
 <section id="inici" class="page active">
   <h1>FoodLogistic S.A.</h1>
-  <p>Solucions modernes i eficients en logística alimentària 🚚🌱</p>
-</section>
-
-<!-- SERVEIS -->
-<section id="serveis" class="page">
-  <h2>Serveis</h2>
-  <p>Transport, magatzematge i distribució alimentària.</p>
-</section>
-
-<!-- SOBRE -->
-<section id="sobre" class="page">
-  <h2>Sobre nosaltres</h2>
-  <p>Empresa especialitzada en logística alimentària amb tecnologia avançada i enfoc sostenible.</p>
+  <p>Logística alimentària moderna 🚚</p>
 </section>
 
 <!-- CONTACTE -->
@@ -131,64 +87,44 @@ button {
   <h2>Contacte</h2>
 
   <input type="text" placeholder="Nom">
-  <input type="email" placeholder="Correu electrònic">
+  <input type="email" placeholder="Email">
   <textarea placeholder="Missatge"></textarea>
 
-  <button onclick="enviarMissatge()">Enviar ✉️</button>
+  <button onclick="enviarMissatge()">Enviar</button>
 </section>
 
-<!-- PANTALLA ÉXITO -->
+<!-- PÀGINA ÈXIT -->
 <section id="enviat" class="page">
-  <h2>Missatge enviat ✅</h2>
-  <p>
-    Gràcies per contactar amb FoodLogistic S.A.<br>
-    Hem rebut el teu missatge correctament i et respondrem aviat.
-  </p>
-
-  <button onclick="showPage('inici')">Tornar a l’inici</button>
+  <h2>✅ Missatge enviat amb èxit!</h2>
+  <p>Gràcies per contactar amb nosaltres.</p>
+  <button onclick="showPage('inici')">Tornar a l'inici</button>
 </section>
-
-<!-- AVÍS LEGAL -->
-<section id="avis" class="page">
-  <h2>Avís legal</h2>
-
-  <p><strong>Política de privacitat</strong><br>
-  Les dades personals es tracten de manera confidencial i només per respondre consultes i millorar serveis. 
-  L’usuari pot exercir els seus drets d’accés, rectificació o eliminació en qualsevol moment.</p>
-
-  <br>
-
-  <p><strong>Política de cookies</strong><br>
-  Utilitzem cookies tècniques, analítiques i de màrqueting per millorar l’experiència de l’usuari i analitzar el trànsit web. 
-  L’usuari pot gestionar les seves preferències en qualsevol moment.</p>
-</section>
-
-<footer style="position:fixed;bottom:0;width:100%;text-align:center;font-size:12px;">
-  © 2026 FoodLogistic S.A.
-</footer>
 
 <script>
 function showPage(id) {
   document.querySelectorAll('.page').forEach(p => {
     p.classList.remove('active');
-    p.style.opacity = 0;
+    p.style.display = "none";
   });
 
   const page = document.getElementById(id);
-  page.classList.add('active');
-  setTimeout(() => page.style.opacity = 1, 50);
+  page.style.display = "flex";
+  setTimeout(() => page.classList.add('active'), 50);
 }
 
-/* 📩 ENVIAR MENSAJE */
 function enviarMissatge() {
-  const inputs = document.querySelectorAll("#contacte input, #contacte textarea");
+  const nom = document.querySelector("#contacte input[type='text']");
+  const email = document.querySelector("#contacte input[type='email']");
+  const msg = document.querySelector("#contacte textarea");
 
-  if (!inputs[0].value || !inputs[1].value || !inputs[2].value) {
+  if (!nom.value || !email.value || !msg.value) {
     alert("Omple tots els camps");
     return;
   }
 
-  inputs.forEach(i => i.value = "");
+  nom.value = "";
+  email.value = "";
+  msg.value = "";
 
   showPage("enviat");
 }
