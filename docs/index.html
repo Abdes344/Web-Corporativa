@@ -66,7 +66,7 @@ button {padding:10px;margin-top:10px;background:cyan;border:none;cursor:pointer;
 
 footer {position:fixed;bottom:0;width:100%;text-align:center;font-size:12px;}
 
-/* 🍪 Banner cookies */
+/* 🍪 COOKIE BANNER (ARREGLADO) */
 .cookie-banner {
   position: fixed;
   bottom: 20px;
@@ -76,8 +76,9 @@ footer {position:fixed;bottom:0;width:100%;text-align:center;font-size:12px;}
   padding: 20px;
   border: 1px solid cyan;
   border-radius: 10px;
-  z-index: 999;
+  z-index: 9999;
   text-align:center;
+  display: block;
 }
 .cookie-banner button {
   margin:5px;
@@ -135,7 +136,7 @@ footer {position:fixed;bottom:0;width:100%;text-align:center;font-size:12px;}
   <p><strong>Política de cookies</strong><br>Aquest lloc utilitza cookies.</p>
 </section>
 
-<!-- 🍪 Banner -->
+<!-- 🍪 BANNER FUNCIONAL -->
 <div id="cookieBanner" class="cookie-banner">
   <p>Aquest lloc web utilitza cookies 🍪</p>
   <button onclick="acceptCookies()">Acceptar</button>
@@ -157,11 +158,7 @@ function showPage(id) {
   setTimeout(()=> { newPage.style.opacity = 1; }, 50);
 }
 
-/* 🍪 SIEMPRE mostrar */
-window.onload = function() {
-  document.getElementById("cookieBanner").style.display = "block";
-}
-
+/* 🍪 SIEMPRE SE MUESTRA AL ENTRAR */
 function acceptCookies() {
   localStorage.setItem("cookiesAccepted", "true");
   document.getElementById("cookieBanner").style.display = "none";
