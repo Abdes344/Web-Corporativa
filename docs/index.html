@@ -161,14 +161,12 @@ footer {
   <button onclick="enviarFormulari()">Enviar ✉️</button>
 </section>
 
-<!-- PÀGINA GRÀCIES -->
 <section id="gracies" class="page">
   <h2>Gràcies per contactar amb nosaltres! 🎉</h2>
   <p>Hem rebut el teu missatge i et respondrem el més aviat possible.</p>
   <button onclick="showPage('inici')">Tornar a l'inici</button>
 </section>
 
-<!-- AVÍS LEGAL -->
 <section id="avis" class="page">
   <h2>Avís legal</h2>
 
@@ -189,7 +187,6 @@ footer {
   </p>
 </section>
 
-<!-- COOKIE BANNER -->
 <div id="cookieBanner" class="cookie-banner">
   <p><strong>Aquest lloc utilitza cookies 🍪</strong></p>
 
@@ -221,6 +218,15 @@ function showPage(id) {
 }
 
 function enviarFormulari() {
+  const nom = document.querySelector('#contacte input[type="text"]').value.trim();
+  const email = document.querySelector('#contacte input[type="email"]').value.trim();
+  const missatge = document.querySelector('#contacte textarea').value.trim();
+
+  if (!nom || !email || !missatge) {
+    alert("Si us plau, omple tots els camps abans d'enviar el formulari.");
+    return;
+  }
+
   showPage('gracies');
 }
 
