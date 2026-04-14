@@ -151,17 +151,20 @@ width: 340px;
 margin:5px;
 }
 
-/* 🔒 BLOQUEIG */
+/* BLOQUEIG */
 body.locked nav a {
 pointer-events: none;
 opacity: 0.3;
+}
+
+body.locked {
+overflow:hidden;
 }
 </style>
 </head>
 
 <body class="locked">
 
-<!-- HEADER -->
 <header>
 <nav>
 <a onclick="showPage('inici')">Inici</a>
@@ -176,7 +179,6 @@ opacity: 0.3;
 </div>
 </header>
 
-<!-- PÀGINES -->
 <section id="inici" class="page active">
 <h1>FoodLogistic S.A.</h1>
 <p>Solucions modernes i eficients en logística alimentària 🚚🌱📦✨</p>
@@ -194,11 +196,7 @@ opacity: 0.3;
 
 <section id="sobre" class="page">
 <h2>Sobre nosaltres</h2>
-<p>
-FoodLogistic S.A. és una empresa especialitzada en logística alimentària amb una llarga trajectòria en el sector.
-El nostre objectiu és oferir solucions eficients, segures i sostenibles per al transport i emmagatzematge de productes alimentaris.
-Apostem per la innovació tecnològica, el control de qualitat i la reducció de l’impacte ambiental en totes les nostres operacions.
-</p>
+<p>FoodLogistic S.A. és una empresa especialitzada en logística alimentària...</p>
 </section>
 
 <section id="contacte" class="page">
@@ -208,73 +206,17 @@ Apostem per la innovació tecnològica, el control de qualitat i la reducció de
 <input type="email" placeholder="Correu electrònic">
 <textarea placeholder="Missatge"></textarea>
 
-<!-- AFEGIT PER 10/10 -->
 <label style="font-size:12px; display:block; margin-top:10px;">
 <input type="checkbox" id="privacitat">
 Accepto la política de privacitat
 </label>
-<a href="#" onclick="showPage('avis')" style="font-size:12px; color:cyan;">
-Veure política de privacitat
-</a>
 
 <button onclick="enviarFormulari()">Enviar ✉️</button>
 </section>
 
-<section id="gracies" class="page">
-<h2>Gràcies per contactar amb nosaltres! 🎉</h2>
-<p>Hem rebut el teu missatge i et respondrem el més aviat possible.</p>
-<button onclick="showPage('inici')">Tornar a l'inici</button>
-</section>
-
 <section id="avis" class="page">
 <h2>Avís legal</h2>
-
-<section id="privacitat-cookies">
-
-<h2>Política de privacitat</h2>
-
-<p>
-<strong>Política de privacitat</strong><br><br>
-
-A FoodLogistic S.A. ens comprometem a protegir la privacitat dels usuaris del nostre lloc web. Les dades personals recollides a través de formularis de contacte o altres interaccions es tracten de manera confidencial i s’utilitzen únicament per gestionar les sol·licituds dels usuaris, millorar els nostres serveis i mantenir la comunicació comercial necessària. En cap cas es cediran dades a tercers sense consentiment previ, excepte obligació legal. Els usuaris poden exercir els seus drets d’accés, rectificació, supressió i oposició contactant amb la nostra empresa.<br><br>
-
-<strong>Informació completa de protecció de dades:</strong><br>
-Responsable del tractament: FoodLogistic S.A.<br>
-Finalitat: gestionar les consultes, prestar els serveis i millorar l’experiència d’usuari.<br>
-Legitimació: consentiment de l’usuari i execució de serveis.<br>
-Destinataris: no es cediran dades a tercers excepte obligació legal.<br>
-Drets dels usuaris: accedir, rectificar i suprimir les dades, així com altres drets com la limitació del tractament, oposició i portabilitat.<br>
-Conservació de dades: es mantindran durant el temps necessari per complir amb la finalitat per la qual han estat recollides.<br>
-Mesures de seguretat: s’apliquen mesures tècniques i organitzatives per garantir la seguretat de les dades.<br><br>
-
-Conté tota la informació que cal especificar i contempla tots els drets segons la rúbrica d’avaluació per obtenir la màxima puntuació.
-</p>
-
-<br>
-
-<h2>Política de cookies</h2>
-
-<p>
-<strong>Política de cookies</strong><br><br>
-
-Aquest lloc web utilitza cookies pròpies i de tercers amb la finalitat de garantir el correcte funcionament de la pàgina, analitzar el trànsit web i millorar l’experiència de l’usuari. Les cookies tècniques són necessàries per al funcionament del lloc, mentre que les cookies analítiques ens permeten comprendre com els visitants interactuen amb la web. Les cookies de màrqueting poden utilitzar-se per mostrar contingut personalitzat segons els interessos de l’usuari. L’usuari pot acceptar, rebutjar o configurar les seves preferències en qualsevol moment.<br><br>
-
-<strong>Informació detallada sobre les cookies utilitzades:</strong><br>
-Cookies tècniques: necessàries per al funcionament bàsic del lloc web i per permetre la navegació i l’ús de les seves funcionalitats.<br>
-Cookies de personalització: permeten recordar preferències de l’usuari com l’idioma o configuracions.<br>
-Cookies analítiques: permeten quantificar el nombre d’usuaris i realitzar l’anàlisi estadística de l’ús del lloc web.<br>
-Cookies de màrqueting: s’utilitzen per mostrar anuncis rellevants i personalitzats segons els hàbits de navegació.<br><br>
-
-<strong>Gestió de cookies:</strong><br>
-L’usuari pot configurar el seu navegador per acceptar o rebutjar totes les cookies, o bé per rebre un avís quan una cookie s’instal·li. També pot eliminar les cookies emmagatzemades al seu dispositiu en qualsevol moment.<br><br>
-
-<strong>Base legal:</strong><br>
-L’ús de cookies no essencials es basa en el consentiment de l’usuari, que pot retirar en qualsevol moment.<br><br>
-
-Text legal complet, indicant les cookies utilitzades, segons la rúbrica d’avaluació per obtenir la màxima puntuació.
-</p>
-
-</section>
+<p>Text legal...</p>
 </section>
 
 <!-- COOKIE BANNER -->
@@ -289,20 +231,20 @@ Necessàries
 <br>
 
 <label>
-<input type="checkbox" id="analyticsCookies">
+<input type="checkbox">
 Analítiques
 </label>
 <br>
 
 <label>
-<input type="checkbox" id="marketingCookies">
+<input type="checkbox">
 Màrqueting
 </label>
 </div>
 
 <div>
-<button onclick="saveCookiePreferences()">Guardar selecció</button>
-<button onclick="rejectCookies()">Rebutjar totes</button>
+<button onclick="acceptCookies()">Acceptar</button>
+<button onclick="rejectCookies()">Rebutjar</button>
 </div>
 </div>
 
@@ -312,7 +254,7 @@ Màrqueting
 
 <script>
 
-// mostrar pàgines
+// navegació bloquejada fins acceptar
 function showPage(id){
 if(document.body.classList.contains("locked")) return;
 
@@ -333,26 +275,21 @@ return;
 alert("Enviat!");
 }
 
-// cookies
+// acceptar cookies
 function acceptCookies(){
-localStorage.setItem("cookies","true");
-unlockSite();
-}
-
-function rejectCookies(){
-localStorage.setItem("cookies","false");
-unlockSite();
-}
-
-function unlockSite(){
 document.getElementById("cookieBanner").style.display="none";
 document.body.classList.remove("locked");
 }
 
-window.onload=function(){
-if(localStorage.getItem("cookies")==="true"){
-unlockSite();
+// rebutjar cookies
+function rejectCookies(){
+alert("Has de acceptar cookies per utilitzar la web");
 }
+
+// sempre mostrar bloqueig i banner
+window.onload=function(){
+document.body.classList.add("locked");
+document.getElementById("cookieBanner").style.display="block";
 }
 
 </script>
