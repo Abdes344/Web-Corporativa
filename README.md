@@ -15,7 +15,8 @@ Aquesta proposta inclou:
 * Integració d’un sistema d’analítica web (StatCounter)
 
 ---
-DEMOSTRACIÓ 
+DEMOSTRACIÓ 📃
+
 https://abdes344.github.io/Web-Corporativa/
 
 ---
