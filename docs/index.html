@@ -132,7 +132,7 @@ text-align:center;
 font-size:12px;
 }
 
-/* COOKIE */
+/* COOKIE BANNER */
 .cookie-banner {
 position: fixed;
 bottom: 20px;
@@ -151,29 +151,17 @@ width: 340px;
 margin:5px;
 }
 
-/* 🔥 AFEGIT: bloqueig navegació */
-.locked nav a {
+/* 🔒 BLOQUEIG */
+body.locked nav a {
 pointer-events: none;
 opacity: 0.3;
-}
-
-.lock-overlay {
-position: fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-z-index: 9998;
-background: rgba(0,0,0,0.2);
 }
 </style>
 </head>
 
-<body>
+<body class="locked">
 
-<!-- 🔥 AFEGIT: overlay bloqueig -->
-<div id="lockOverlay" class="lock-overlay"></div>
-
+<!-- HEADER -->
 <header>
 <nav>
 <a onclick="showPage('inici')">Inici</a>
@@ -188,6 +176,7 @@ background: rgba(0,0,0,0.2);
 </div>
 </header>
 
+<!-- PÀGINES -->
 <section id="inici" class="page active">
 <h1>FoodLogistic S.A.</h1>
 <p>Solucions modernes i eficients en logística alimentària 🚚🌱📦✨</p>
@@ -224,28 +213,15 @@ Apostem per la innovació tecnològica, el control de qualitat i la reducció de
 Accepto la política de privacitat
 </label>
 
-<a href="#" onclick="showPage('avis')" style="font-size:12px; color:cyan;">
-Veure política de privacitat
-</a>
-
 <button onclick="enviarFormulari()">Enviar ✉️</button>
-</section>
-
-<section id="gracies" class="page">
-<h2>Gràcies per contactar amb nosaltres! 🎉</h2>
-<p>Hem rebut el teu missatge i et respondrem el més aviat possible.</p>
-<button onclick="showPage('inici')">Tornar a l'inici</button>
 </section>
 
 <section id="avis" class="page">
 <h2>Avís legal</h2>
-
-<p>
-<!-- (CONTINGUT TEU INTACTE) -->
-Política de privacitat i cookies...
-</p>
+<p>Contingut legal complet...</p>
 </section>
 
+<!-- COOKIE BANNER -->
 <div id="cookieBanner" class="cookie-banner">
 <p><strong>Aquest lloc utilitza cookies 🍪</strong></p>
 
@@ -255,10 +231,8 @@ Política de privacitat i cookies...
 <label><input type="checkbox" id="marketingCookies"> Màrqueting</label>
 </div>
 
-<div>
-<button onclick="saveCookiePreferences()">Guardar selecció</button>
-<button onclick="rejectCookies()">Rebutjar totes</button>
-</div>
+<button onclick="acceptCookies()">Acceptar</button>
+<button onclick="rejectCookies()">Rebutjar</button>
 </div>
 
 <footer>
@@ -267,87 +241,47 @@ Política de privacitat i cookies...
 
 <script>
 
-/* 🔥 AFEGIT: control cookies global */
-function checkCookies() {
-    return localStorage.getItem("cookiesAccepted") === "true";
+// mostrar pàgines
+function showPage(id){
+if(document.body.classList.contains("locked")) return;
+
+document.querySelectorAll(".page").forEach(p=>{
+p.classList.remove("active");
+});
+
+document.getElementById(id).classList.add("active");
 }
 
-/* 🔥 AFEGIT: bloqueig navegació fins acceptació */
-function updateLockState() {
-    const accepted = checkCookies();
-
-    document.getElementById("cookieBanner").style.display = accepted ? "none" : "block";
-    document.getElementById("lockOverlay").style.display = accepted ? "none" : "block";
-}
-
-/* 🔥 MODIFICAT (afegit control cookies) */
-function showPage(id) {
-    if (!checkCookies()) {
-        alert("Has d'acceptar les cookies per navegar per la web.");
-        return;
-    }
-
-    document.querySelectorAll('.page').forEach(p => {
-        p.classList.remove('active');
-        p.style.opacity = 0;
-    });
-
-    const page = document.getElementById(id);
-    page.classList.add('active');
-    setTimeout(() => page.style.opacity = 1, 50);
-}
-
-/* 🔥 AFEGIT inici */
-window.onload = function() {
-    updateLockState();
-};
-
-/* ORIGINALS TEUS (intactes) */
-function enviarFormulari() {
-const nom = document.querySelector('#contacte input[type="text"]').value.trim();
-const email = document.querySelector('#contacte input[type="email"]').value.trim();
-const missatge = document.querySelector('#contacte textarea').value.trim();
-
-if (!nom || !email || !missatge) {
-alert("Si us plau, omple tots els camps abans d'enviar el formulari.");
+// formulari
+function enviarFormulari(){
+const ok = document.getElementById("privacitat").checked;
+if(!ok){
+alert("Accepta la privacitat");
 return;
 }
-
-showPage('gracies');
+alert("Enviat!");
 }
 
-function saveCookiePreferences() {
-localStorage.setItem("cookiesAccepted", "true");
-localStorage.setItem("analytics", document.getElementById("analyticsCookies").checked);
-localStorage.setItem("marketing", document.getElementById("marketingCookies").checked);
-updateLockState();
+// cookies
+function acceptCookies(){
+localStorage.setItem("cookies","true");
+unlockSite();
 }
 
-function rejectCookies() {
-localStorage.setItem("cookiesAccepted", "false");
-localStorage.setItem("analytics", "false");
-localStorage.setItem("marketing", "false");
-updateLockState();
+function rejectCookies(){
+localStorage.setItem("cookies","false");
+unlockSite();
 }
 
-/* SEGONA VERSIÓ QUE JA TENIES (la deixo intacta) */
-function enviarFormulari() {
-const nom = document.querySelector('#contacte input[type="text"]').value.trim();
-const email = document.querySelector('#contacte input[type="email"]').value.trim();
-const missatge = document.querySelector('#contacte textarea').value.trim();
-const privacitat = document.getElementById("privacitat").checked;
-
-if (!nom || !email || !missatge) {
-alert("Si us plau, omple tots els camps abans d'enviar el formulari.");
-return;
+function unlockSite(){
+document.getElementById("cookieBanner").style.display="none";
+document.body.classList.remove("locked");
 }
 
-if (!privacitat) {
-alert("Has d'acceptar la política de privacitat.");
-return;
+window.onload=function(){
+if(localStorage.getItem("cookies")==="true"){
+unlockSite();
 }
-
-showPage('gracies');
 }
 
 </script>
