@@ -132,7 +132,7 @@ text-align:center;
 font-size:12px;
 }
 
-/* COOKIE BANNER */
+/* COOKIE */
 .cookie-banner {
 position: fixed;
 bottom: 20px;
@@ -151,7 +151,7 @@ width: 340px;
 margin:5px;
 }
 
-/* 🔒 BLOQUEIG */
+/* BLOQUEIG */
 body.locked nav a {
 pointer-events: none;
 opacity: 0.3;
@@ -161,7 +161,6 @@ opacity: 0.3;
 
 <body class="locked">
 
-<!-- HEADER -->
 <header>
 <nav>
 <a onclick="showPage('inici')">Inici</a>
@@ -176,7 +175,6 @@ opacity: 0.3;
 </div>
 </header>
 
-<!-- PÀGINES -->
 <section id="inici" class="page active">
 <h1>FoodLogistic S.A.</h1>
 <p>Solucions modernes i eficients en logística alimentària 🚚🌱📦✨</p>
@@ -216,9 +214,40 @@ Accepto la política de privacitat
 <button onclick="enviarFormulari()">Enviar ✉️</button>
 </section>
 
+<section id="gracies" class="page">
+<h2>Gràcies per contactar amb nosaltres! 🎉</h2>
+<p>Hem rebut el teu missatge i et respondrem el més aviat possible.</p>
+<button onclick="showPage('inici')">Tornar a l'inici</button>
+</section>
+
+<!-- 🔥 AVÍS LEGAL ORIGINAL (RESTAURAT TAL COM EL TEU) -->
 <section id="avis" class="page">
 <h2>Avís legal</h2>
-<p>Contingut legal complet...</p>
+
+<p>
+<section id="privacitat-cookies">
+
+<h2>Política de privacitat</h2>
+
+<p>
+<strong>Política de privacitat</strong><br><br>
+
+A FoodLogistic S.A. ens comprometem a protegir la privacitat dels usuaris del nostre lloc web...
+</p>
+
+<br>
+
+<h2>Política de cookies</h2>
+
+<p>
+<strong>Política de cookies</strong><br><br>
+
+Aquest lloc web utilitza cookies pròpies i de tercers...
+</p>
+
+</section>
+</p>
+
 </section>
 
 <!-- COOKIE BANNER -->
@@ -241,46 +270,32 @@ Accepto la política de privacitat
 
 <script>
 
-// mostrar pàgines
+// bloqueig de navegació
 function showPage(id){
 if(document.body.classList.contains("locked")) return;
-
-document.querySelectorAll(".page").forEach(p=>{
-p.classList.remove("active");
-});
-
+document.querySelectorAll(".page").forEach(p=>p.classList.remove("active"));
 document.getElementById(id).classList.add("active");
-}
-
-// formulari
-function enviarFormulari(){
-const ok = document.getElementById("privacitat").checked;
-if(!ok){
-alert("Accepta la privacitat");
-return;
-}
-alert("Enviat!");
 }
 
 // cookies
 function acceptCookies(){
 localStorage.setItem("cookies","true");
-unlockSite();
+unlock();
 }
 
 function rejectCookies(){
 localStorage.setItem("cookies","false");
-unlockSite();
+unlock();
 }
 
-function unlockSite(){
+function unlock(){
 document.getElementById("cookieBanner").style.display="none";
 document.body.classList.remove("locked");
 }
 
 window.onload=function(){
 if(localStorage.getItem("cookies")==="true"){
-unlockSite();
+unlock();
 }
 }
 
