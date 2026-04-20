@@ -4,152 +4,30 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>FoodLogistic S.A.</title>
-
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
 
 <style>
-* {
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:'Poppins', sans-serif;
-}
-
-body {
-background: black url('https://www.transparenttextures.com/patterns/stardust.png');
-color: white;
-overflow-x: hidden;
-}
-
-header {
-position: fixed;
-top:0;
-width:100%;
-display:flex;
-justify-content:space-between;
-align-items:center;
-padding:15px 30px;
-background: rgba(0,0,0,0.8);
-z-index:10;
-}
-
-.logo {
-display:flex;
-align-items:center;
-gap:10px;
-font-size:20px;
-font-weight:600;
-}
-
-.logo span::before {
-content: "🌱";
-}
-
-nav {
-display:flex;
-gap:25px;
-}
-
-nav a {
-color:white;
-text-decoration:none;
-padding:8px 15px;
-transition:0.3s;
-cursor:pointer;
-}
-
-nav a:hover {
-border:1px solid cyan;
-color:cyan;
-}
-
-.page {
-display: none;
-min-height: 100vh;
-justify-content: center;
-align-items: center;
-flex-direction: column;
-text-align: center;
-padding: 90px 20px 60px;
-opacity:0;
-transform: translateY(30px);
-transition: all 0.6s ease;
-}
-
-.page.active {
-display:flex;
-opacity:1;
-transform: translateY(0);
-}
-
-h1 { font-size:3.5em; }
-h2 { font-size:2.5em; margin-bottom:20px; }
-p { font-size:1.1em; max-width:800px; line-height:1.6; }
-
-.services {
-display:flex;
-gap:20px;
-flex-wrap:wrap;
-justify-content:center;
-margin-top:20px;
-}
-
-.card {
-background: rgba(255,255,255,0.05);
-padding: 20px;
-border-radius: 10px;
-width: 200px;
-transition:0.3s;
-font-size: 1.3em;
-}
-
-.card:hover {
-border:1px solid cyan;
-transform: scale(1.05);
-}
-
-input, textarea {
-width:250px;
-margin:5px;
-padding:8px;
-border-radius:5px;
-border:none;
-}
-
-button {
-padding:10px;
-margin-top:10px;
-background:cyan;
-border:none;
-cursor:pointer;
-}
-
-footer {
-position:fixed;
-bottom:0;
-width:100%;
-text-align:center;
-font-size:12px;
-}
-
-
-.cookie-banner {
-position: fixed;
-bottom: 20px;
-left: 50%;
-transform: translateX(-50%);
-background: black;
-padding: 20px;
-border: 1px solid cyan;
-border-radius: 10px;
-z-index: 9999;
-text-align:center;
-width: 340px;
-}
-
-.cookie-banner button {
-margin:5px;
-}
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
+body{background:black url('https://www.transparenttextures.com/patterns/stardust.png');color:white;overflow-x:hidden;}
+header{position:fixed;top:0;width:100%;display:flex;justify-content:space-between;align-items:center;padding:15px 30px;background:rgba(0,0,0,0.8);z-index:10;}
+.logo{display:flex;align-items:center;gap:10px;font-size:20px;font-weight:600;}
+.logo span::before{content:"🌱";}
+nav{display:flex;gap:25px;}
+nav a{color:white;text-decoration:none;padding:8px 15px;transition:0.3s;cursor:pointer;}
+nav a:hover{border:1px solid cyan;color:cyan;}
+.page{display:none;min-height:100vh;justify-content:center;align-items:center;flex-direction:column;text-align:center;padding:90px 20px 60px;opacity:0;transform:translateY(30px);transition:all 0.6s ease;}
+.page.active{display:flex;opacity:1;transform:translateY(0);}
+h1{font-size:3.5em;}
+h2{font-size:2.5em;margin-bottom:20px;}
+p{font-size:1.1em;max-width:800px;line-height:1.6;}
+.services{display:flex;gap:20px;flex-wrap:wrap;justify-content:center;margin-top:20px;}
+.card{background:rgba(255,255,255,0.05);padding:20px;border-radius:10px;width:200px;transition:0.3s;font-size:1.3em;}
+.card:hover{border:1px solid cyan;transform:scale(1.05);}
+input,textarea{width:250px;margin:5px;padding:8px;border-radius:5px;border:none;}
+button{padding:10px;margin-top:10px;background:cyan;border:none;cursor:pointer;}
+footer{position:fixed;bottom:0;width:100%;text-align:center;font-size:12px;}
+.cookie-banner{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:black;padding:20px;border:1px solid cyan;border-radius:10px;z-index:9999;text-align:center;width:340px;}
+.cookie-banner button{margin:5px;}
 </style>
 </head>
 
@@ -163,10 +41,7 @@ margin:5px;
 <a onclick="showPage('contacte')">Contacte</a>
 <a onclick="showPage('avis')">Avís legal</a>
 </nav>
-
-<div class="logo">
-<span>FoodLogistic</span>
-</div>
+<div class="logo"><span>FoodLogistic</span></div>
 </header>
 
 <section id="inici" class="page active">
@@ -186,91 +61,57 @@ margin:5px;
 
 <section id="sobre" class="page">
 <h2>Sobre nosaltres</h2>
-<p>
-FoodLogistic S.A. és una empresa especialitzada en logística alimentària amb una llarga trajectòria en el sector.
-El nostre objectiu és oferir solucions eficients, segures i sostenibles per al transport i emmagatzematge de productes alimentaris.
-Apostem per la innovació tecnològica, el control de qualitat i la reducció de l’impacte ambiental en totes les nostres operacions.
-</p>
+<p>Empresa especialitzada en logística alimentària amb solucions eficients, segures i sostenibles.</p>
 </section>
-
 
 <section id="contacte" class="page">
 <h2>Contacta amb nosaltres</h2>
 
 <input type="text" placeholder="Nom">
 <input type="email" placeholder="Correu electrònic">
+<input type="tel" placeholder="Telèfon">
 <textarea placeholder="Missatge"></textarea>
 
-
-<label style="font-size:12px; display:block; margin-top:10px;">
+<label style="font-size:12px;display:block;margin-top:10px;">
 <input type="checkbox" id="privacitat">
 Accepto la política de privacitat
 </label>
 
-<a href="#" onclick="showPage('avis')" style="font-size:12px; color:cyan;">
-Veure política de privacitat
+<label style="font-size:12px;display:block;">
+<input type="checkbox" id="comercial">
+Accepto rebre comunicacions comercials
+</label>
+
+<a href="#" onclick="showPage('avis')" style="font-size:12px;color:cyan;">
+Veure polítiques
 </a>
 
 <button onclick="enviarFormulari()">Enviar ✉️</button>
 </section>
 
 <section id="gracies" class="page">
-<h2>Gràcies per contactar amb nosaltres! 🎉</h2>
-<p>Hem rebut el teu missatge i et respondrem el més aviat possible.</p>
-<button onclick="showPage('inici')">Tornar a l'inici</button>
+<h2>Gràcies! 🎉</h2>
+<p>Et respondrem aviat.</p>
+<button onclick="showPage('inici')">Inici</button>
 </section>
 
 <section id="avis" class="page">
-<h2>Avís legal</h2>
+<h2>Avís legal i polítiques</h2>
 
-<p>
-<section id="privacitat-cookies">
-
-<h2>Política de privacitat</h2>
-
-<p>
-<strong>Política de privacitat</strong><br><br>
-A FoodLogistic S.A. ens comprometem a protegir la privacitat dels usuaris del nostre lloc web...
-
-A FoodLogistic S.A. ens comprometem a protegir la privacitat dels usuaris del nostre lloc web. Les dades personals recollides a través de formularis de contacte o altres interaccions es tracten de manera confidencial i s’utilitzen únicament per gestionar les sol·licituds dels usuaris, millorar els nostres serveis i mantenir la comunicació comercial necessària. En cap cas es cediran dades a tercers sense consentiment previ, excepte obligació legal. Els usuaris poden exercir els seus drets d’accés, rectificació, supressió i oposició contactant amb la nostra empresa.
-<br><br>
-
-<strong>Informació completa de protecció de dades:</strong><br>
-Responsable del tractament: FoodLogistic S.A.<br>
-Finalitat: gestionar les consultes, prestar els serveis i millorar l’experiència d’usuari.<br>
-Legitimació: consentiment de l’usuari i execució de serveis.<br>
-Destinataris: no es cediran dades a tercers excepte obligació legal.<br>
-Drets dels usuaris: accedir, rectificar i suprimir les dades, així com altres drets com la limitació del tractament, oposició i portabilitat.<br>
-Conservació de dades: es mantindran durant el temps necessari per complir amb la finalitat per la qual han estat recollides.<br>
-Mesures de seguretat: s’apliquen mesures tècniques i organitzatives per garantir la seguretat de les dades.<br><br>
-
-Conté tota la informació que cal especificar i contempla tots els drets segons la rúbrica d’avaluació per obtenir la màxima puntuació.
-</p>
+<p><strong>Responsable:</strong> FoodLogistic S.A.<br>
+Finalitat: gestionar consultes i serveis.<br>
+Legitimació: consentiment.<br>
+Destinataris: no es cedeixen dades.<br>
+Drets: accés, rectificació, supressió, oposició, limitació i portabilitat.<br>
+Conservació: segons necessitat del servei.</p>
 
 <br>
 
 <h2>Política de cookies</h2>
-
 <p>
-<strong>Política de cookies</strong><br><br>
-Aquest lloc web utilitza cookies pròpies i de tercers...
-
-Aquest lloc web utilitza cookies pròpies i de tercers amb la finalitat de garantir el correcte funcionament de la pàgina, analitzar el trànsit web i millorar l’experiència de l’usuari. Les cookies tècniques són necessàries per al funcionament del lloc, mentre que les cookies analítiques ens permeten comprendre com els visitants interactuen amb la web. Les cookies de màrqueting poden utilitzar-se per mostrar contingut personalitzat segons els interessos de l’usuari. L’usuari pot acceptar, rebutjar o configurar les seves preferències en qualsevol moment.
-<br><br>
-
-<strong>Informació detallada sobre les cookies utilitzades:</strong><br>
-Cookies tècniques: necessàries per al funcionament bàsic del lloc web i per permetre la navegació i l’ús de les seves funcionalitats.<br>
-Cookies de personalització: permeten recordar preferències de l’usuari com l’idioma o configuracions.<br>
-Cookies analítiques: permeten quantificar el nombre d’usuaris i realitzar l’anàlisi estadística de l’ús del lloc web.<br>
-Cookies de màrqueting: s’utilitzen per mostrar anuncis rellevants i personalitzats segons els hàbits de navegació.<br><br>
-
-<strong>Gestió de cookies:</strong><br>
-L’usuari pot configurar el seu navegador per acceptar o rebutjar totes les cookies, o bé per rebre un avís quan una cookie s’instal·li. També pot eliminar les cookies emmagatzemades al seu dispositiu en qualsevol moment.<br><br>
-
-<strong>Base legal:</strong><br>
-L’ús de cookies no essencials es basa en el consentiment de l’usuari, que pot retirar en qualsevol moment.<br><br>
-
-Text legal complet, indicant les cookies utilitzades, segons la rúbrica d’avaluació per obtenir la màxima puntuació.
+Cookies tècniques, analítiques i de màrqueting.<br>
+Durada: sessió o fins a 2 anys.<br>
+L’usuari pot acceptar o rebutjar-les.
 </p>
 
 </section>
@@ -278,79 +119,44 @@ Text legal complet, indicant les cookies utilitzades, segons la rúbrica d’ava
 <div id="cookieBanner" class="cookie-banner">
 <p><strong>Aquest lloc utilitza cookies 🍪</strong></p>
 
-<div style="text-align:left;font-size:13px;margin-top:10px;">
 <label><input type="checkbox" checked disabled> Necessàries</label><br>
 <label><input type="checkbox" id="analyticsCookies"> Analítiques</label><br>
 <label><input type="checkbox" id="marketingCookies"> Màrqueting</label>
-</div>
 
 <div>
-<button onclick="saveCookiePreferences()">Guardar selecció</button>
-<button onclick="rejectCookies()">Rebutjar totes</button>
+<button onclick="saveCookiePreferences()">Acceptar</button>
+<button onclick="rejectCookies()">Rebutjar</button>
 </div>
 </div>
 
-<footer>
-© 2026 FoodLogistic S.A.
-</footer>
+<footer>© 2026 FoodLogistic S.A.</footer>
 
 <script>
-function showPage(id) {
-document.querySelectorAll('.page').forEach(p => {
-p.classList.remove('active');
-p.style.opacity = 0;
-});
-
-const page = document.getElementById(id);
-page.classList.add('active');
-setTimeout(() => page.style.opacity = 1, 50);
+function showPage(id){
+document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+document.getElementById(id).classList.add('active');
 }
 
-function enviarFormulari() {
-const nom = document.querySelector('#contacte input[type="text"]').value.trim();
-const email = document.querySelector('#contacte input[type="email"]').value.trim();
-const missatge = document.querySelector('#contacte textarea').value.trim();
+function enviarFormulari(){
+const inputs=document.querySelectorAll('#contacte input, #contacte textarea');
+for(let i of inputs){if(!i.value.trim()){alert("Omple tots els camps");return;}}
 
-if (!nom || !email || !missatge) {
-alert("Si us plau, omple tots els camps abans d'enviar el formulari.");
+if(!document.getElementById("privacitat").checked){
+alert("Accepta la política de privacitat");
 return;
 }
 
 showPage('gracies');
 }
 
-function saveCookiePreferences() {
-localStorage.setItem("cookiesAccepted", "true");
-localStorage.setItem("analytics", document.getElementById("analyticsCookies").checked);
-localStorage.setItem("marketing", document.getElementById("marketingCookies").checked);
-document.getElementById("cookieBanner").style.display = "none";
+function saveCookiePreferences(){
+localStorage.setItem("cookiesAccepted","true");
+document.getElementById("cookieBanner").style.display="none";
 }
 
-function rejectCookies() {
-localStorage.setItem("cookiesAccepted", "false");
-localStorage.setItem("analytics", "false");
-localStorage.setItem("marketing", "false");
-document.getElementById("cookieBanner").style.display = "none";
-}
-
-
-function enviarFormulari() {
-const nom = document.querySelector('#contacte input[type="text"]').value.trim();
-const email = document.querySelector('#contacte input[type="email"]').value.trim();
-const missatge = document.querySelector('#contacte textarea').value.trim();
-const privacitat = document.getElementById("privacitat").checked;
-
-if (!nom || !email || !missatge) {
-alert("Si us plau, omple tots els camps abans d'enviar el formulari.");
-return;
-}
-
-if (!privacitat) {
-alert("Has d'acceptar la política de privacitat.");
-return;
-}
-
-showPage('gracies');
+function rejectCookies(){
+localStorage.setItem("cookiesAccepted","false");
+document.getElementById("cookieBanner").style.display="none";
 }
 </script>
 
