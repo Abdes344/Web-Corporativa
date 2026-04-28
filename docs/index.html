@@ -73,18 +73,14 @@ footer{position:fixed;bottom:0;width:100%;text-align:center;font-size:12px;}
 <textarea placeholder="Missatge"></textarea>
 
 <label style="font-size:12px;display:block;margin-top:10px;">
-<input type="checkbox" id="privacitat">
-Accepto la política de privacitat
+<input type="checkbox" id="privacitat" required>
+Accepto la <a href="#" onclick="showPage('privacitat')" style="color:cyan;">política de privacitat</a>
 </label>
 
 <label style="font-size:12px;display:block;">
 <input type="checkbox" id="comercial">
-Accepto rebre comunicacions comercials
+Accepto rebre comunicacions comercials segons l’<a href="#" onclick="showPage('avis')" style="color:cyan;">avís legal</a>
 </label>
-
-<a href="#" onclick="showPage('avis')" style="font-size:12px;color:cyan;">
-Veure polítiques
-</a>
 
 <button onclick="enviarFormulari()">Enviar ✉️</button>
 </section>
@@ -95,27 +91,62 @@ Veure polítiques
 <button onclick="showPage('inici')">Inici</button>
 </section>
 
+<!-- AVÍS LEGAL -->
 <section id="avis" class="page">
-<h2>Avís legal i polítiques</h2>
+<h2>Avís legal</h2>
 
-<p><strong>Responsable:</strong> FoodLogistic S.A.<br>
-Finalitat: gestionar consultes i serveis.<br>
-Legitimació: consentiment.<br>
-Destinataris: no es cedeixen dades.<br>
-Drets: accés, rectificació, supressió, oposició, limitació i portabilitat.<br>
-Conservació: segons necessitat del servei.</p>
+<p><strong>Raó social:</strong> FoodLogistic S.A.<br>
+<strong>NIF:</strong> A08123456<br>
+<strong>Adreça:</strong> Carrer de la Teixidora, núm. 13, 08302 Mataró (Barcelona)<br>
+<strong>Registre Mercantil:</strong> Tom 45678, Foli 120, Full B-567890<br>
+<strong>Email:</strong> info@foodlogistic.com<br>
+<strong>Telèfon:</strong> +34 935 55 55 55</p>
 
-<br>
+<p>Aquest lloc web compleix amb la normativa vigent en protecció de dades i serveis digitals.</p>
 
-<h2>Política de cookies</h2>
-<p>
-Cookies tècniques, analítiques i de màrqueting.<br>
-Durada: sessió o fins a 2 anys.<br>
-L’usuari pot acceptar o rebutjar-les.
-</p>
+<h2>Responsabilitat</h2>
+<p>FoodLogistic S.A. no es fa responsable del mal ús dels continguts ni de possibles errors tècnics.</p>
 
+<h2>Propietat intel·lectual</h2>
+<p>Tots els continguts són propietat de l’empresa i no poden ser reproduïts sense autorització.</p>
+
+<h2>Seguretat</h2>
+<p>S’apliquen mesures tècniques i organitzatives per garantir la seguretat de les dades.</p>
 </section>
 
+<!-- POLÍTICA PRIVACITAT -->
+<section id="privacitat" class="page">
+<h2>Política de privacitat</h2>
+
+<p><strong>Responsable:</strong> FoodLogistic S.A.</p>
+
+<p><strong>Finalitat:</strong> Gestió de consultes i enviament de serveis.</p>
+
+<p><strong>Base legal:</strong> Consentiment de l’usuari.</p>
+
+<p><strong>Destinataris:</strong> No es cediran dades a tercers.</p>
+
+<p><strong>Conservació:</strong> Les dades es conservaran mentre siguin necessàries.</p>
+
+<p><strong>Drets ARSLOP:</strong> Pots exercir accés, rectificació, supressió, oposició, limitació i portabilitat enviant un correu a info@foodlogistic.com.</p>
+</section>
+
+<!-- COOKIES -->
+<section id="cookies" class="page">
+<h2>Política de cookies</h2>
+
+<p>Utilitzem cookies pròpies i de tercers:</p>
+
+<p><strong>Necessàries:</strong> Funcionament web.</p>
+<p><strong>Analítiques:</strong> Estadístiques d’ús.</p>
+<p><strong>Màrqueting:</strong> Publicitat personalitzada.</p>
+
+<p><strong>Durada:</strong> Fins a 2 anys.</p>
+
+<p>Pots acceptar o rebutjar-les des del banner.</p>
+</section>
+
+<!-- BANNER COOKIES -->
 <div id="cookieBanner" class="cookie-banner">
 <p><strong>Aquest lloc utilitza cookies 🍪</strong></p>
 
@@ -127,6 +158,8 @@ L’usuari pot acceptar o rebutjar-les.
 <button onclick="saveCookiePreferences()">Acceptar</button>
 <button onclick="rejectCookies()">Rebutjar</button>
 </div>
+
+<a href="#" onclick="showPage('cookies')" style="color:cyan;font-size:12px;">Més informació</a>
 </div>
 
 <footer>© 2026 FoodLogistic S.A.</footer>
@@ -138,11 +171,17 @@ document.getElementById(id).classList.add('active');
 }
 
 function enviarFormulari(){
-const inputs=document.querySelectorAll('#contacte input, #contacte textarea');
-for(let i of inputs){if(!i.value.trim()){alert("Omple tots els camps");return;}}
+const inputs=document.querySelectorAll('#contacte input[type=text], #contacte input[type=email], #contacte input[type=tel], #contacte textarea');
+
+for(let i of inputs){
+if(!i.value.trim()){
+alert("Omple tots els camps");
+return;
+}
+}
 
 if(!document.getElementById("privacitat").checked){
-alert("Accepta la política de privacitat");
+alert("Has d’acceptar la política de privacitat");
 return;
 }
 
@@ -150,13 +189,25 @@ showPage('gracies');
 }
 
 function saveCookiePreferences(){
+const analytics=document.getElementById("analyticsCookies").checked;
+const marketing=document.getElementById("marketingCookies").checked;
+
+localStorage.setItem("cookiesAnalytics",analytics);
+localStorage.setItem("cookiesMarketing",marketing);
 localStorage.setItem("cookiesAccepted","true");
+
 document.getElementById("cookieBanner").style.display="none";
 }
 
 function rejectCookies(){
 localStorage.setItem("cookiesAccepted","false");
 document.getElementById("cookieBanner").style.display="none";
+}
+
+window.onload=function(){
+if(localStorage.getItem("cookiesAccepted")){
+document.getElementById("cookieBanner").style.display="none";
+}
 }
 </script>
 
