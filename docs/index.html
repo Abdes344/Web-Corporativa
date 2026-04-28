@@ -8,107 +8,26 @@
 
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
-
-body{
-background: radial-gradient(circle at 20% 20%, #0a0a0a, #000);
-color:white;
-overflow-x:hidden;
-}
-
-header{
-position:fixed;
-top:0;
-width:100%;
-display:flex;
-justify-content:space-between;
-align-items:center;
-padding:15px 40px;
-background:rgba(0,0,0,0.6);
-backdrop-filter: blur(10px);
-z-index:10;
-}
-
-.logo img{height:55px;}
-
+body{background:black url('https://www.transparenttextures.com/patterns/stardust.png');color:white;overflow-x:hidden;}
+header{position:fixed;top:0;width:100%;display:flex;justify-content:space-between;align-items:center;padding:15px 30px;background:rgba(0,0,0,0.8);z-index:10;}
+.logo{display:flex;align-items:center;gap:10px;font-size:20px;font-weight:600;}
+.logo span::before{content:"🌱";}
 nav{display:flex;gap:25px;}
-nav a{color:white;text-decoration:none;padding:8px 15px;border-radius:20px;cursor:pointer;}
-nav a:hover{background:rgba(0,255,255,0.1);color:cyan;}
-
-.page{
-display:none;
-min-height:100vh;
-justify-content:center;
-align-items:center;
-flex-direction:column;
-text-align:center;
-padding:100px 20px 60px;
-opacity:0;
-transform:translateY(30px);
-transition:all 0.6s ease;
-}
-
+nav a{color:white;text-decoration:none;padding:8px 15px;transition:0.3s;cursor:pointer;}
+nav a:hover{border:1px solid cyan;color:cyan;}
+.page{display:none;min-height:100vh;justify-content:center;align-items:center;flex-direction:column;text-align:center;padding:90px 20px 60px;opacity:0;transform:translateY(30px);transition:all 0.6s ease;}
 .page.active{display:flex;opacity:1;transform:translateY(0);}
-
-h1{
-font-size:3.5em;
-background:linear-gradient(90deg, cyan, #00ff88);
--webkit-background-clip:text;
-color:transparent;
-}
-
+h1{font-size:3.5em;}
 h2{font-size:2.5em;margin-bottom:20px;}
-p{max-width:800px;color:#ccc;}
-
-.services{display:flex;gap:20px;flex-wrap:wrap;justify-content:center;margin-top:30px;}
-
-.card{
-background:rgba(255,255,255,0.05);
-padding:20px;
-border-radius:10px;
-width:200px;
-transition:0.3s;
-}
-
+p{font-size:1.1em;max-width:800px;line-height:1.6;}
+.services{display:flex;gap:20px;flex-wrap:wrap;justify-content:center;margin-top:20px;}
+.card{background:rgba(255,255,255,0.05);padding:20px;border-radius:10px;width:200px;transition:0.3s;font-size:1.3em;}
 .card:hover{border:1px solid cyan;transform:scale(1.05);}
-
-input,textarea{
-width:260px;
-margin:6px;
-padding:10px;
-border-radius:8px;
-border:none;
-background:#111;
-color:white;
-}
-
-button{
-padding:12px 20px;
-margin-top:15px;
-background:cyan;
-border:none;
-cursor:pointer;
-border-radius:20px;
-}
-
-.cookie-banner{
-position:fixed;
-bottom:20px;
-left:50%;
-transform:translateX(-50%);
-background:black;
-padding:20px;
-border:1px solid cyan;
-border-radius:10px;
-z-index:9999;
-}
-
-footer{
-position:fixed;
-bottom:0;
-width:100%;
-text-align:center;
-font-size:12px;
-}
+input,textarea{width:250px;margin:5px;padding:8px;border-radius:5px;border:none;}
+button{padding:10px;margin-top:10px;background:cyan;border:none;cursor:pointer;}
+footer{position:fixed;bottom:0;width:100%;text-align:center;font-size:12px;}
+.cookie-banner{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:black;padding:20px;border:1px solid cyan;border-radius:10px;z-index:9999;text-align:center;width:340px;}
+.cookie-banner button{margin:5px;}
 </style>
 </head>
 
@@ -122,84 +41,100 @@ font-size:12px;
 <a onclick="showPage('contacte')">Contacte</a>
 <a onclick="showPage('avis')">Avís legal</a>
 </nav>
-
-<div class="logo">
-<img src="logo.png">
-</div>
+<div class="logo"><span>FoodLogistic</span></div>
 </header>
 
 <section id="inici" class="page active">
 <h1>FoodLogistic S.A.</h1>
-<p>Logística alimentària intel·ligent 🚀</p>
+<p>Solucions modernes i eficients en logística alimentària 🚚🌱📦✨</p>
 </section>
 
 <section id="serveis" class="page">
-<h2>Serveis</h2>
+<h2>Els nostres serveis</h2>
 <div class="services">
-<div class="card">🚛 Transport</div>
-<div class="card">📦 Magatzem</div>
-<div class="card">🌍 Distribució</div>
-<div class="card">⏱️ Tracking</div>
+<div class="card">🚛 Transport refrigerat ❄️</div>
+<div class="card">🏭 Magatzematge intel·ligent 📦</div>
+<div class="card">🛣️ Distribució nacional 🌍</div>
+<div class="card">📡 Seguiment en temps real ⏱️</div>
 </div>
 </section>
 
 <section id="sobre" class="page">
 <h2>Sobre nosaltres</h2>
-<p>Empresa logística moderna i eficient.</p>
+<p>Empresa especialitzada en logística alimentària amb solucions eficients, segures i sostenibles.</p>
 </section>
 
 <section id="contacte" class="page">
-<h2>Contacte</h2>
+<h2>Contacta amb nosaltres</h2>
 
-<input id="nom" type="text" placeholder="Nom">
-<input id="email" type="email" placeholder="Email">
-<input id="telefon" type="tel" placeholder="Telèfon">
-<textarea id="missatge" placeholder="Missatge"></textarea>
+<input type="text" placeholder="Nom">
+<input type="email" placeholder="Correu electrònic">
+<input type="tel" placeholder="Telèfon">
+<textarea placeholder="Missatge"></textarea>
 
-<label>
-<input type="checkbox" id="privacitat">
-Accepto la <a onclick="showPage('privacitat')" style="color:cyan;">política de privacitat</a>
+<label style="font-size:12px;display:block;margin-top:10px;">
+<input type="checkbox" id="privacitat" required>
+Accepto la política de privacitat
 </label>
 
-<label>
+<label style="font-size:12px;display:block;">
 <input type="checkbox" id="comercial">
-Accepto comunicacions comercials
+Accepto rebre comunicacions comercials
 </label>
 
-<button onclick="enviarFormulari()">Enviar</button>
+<button onclick="enviarFormulari()">Enviar ✉️</button>
 </section>
 
 <section id="gracies" class="page">
-<h2>Gràcies!</h2>
-<p>Missatge enviat correctament.</p>
+<h2>Gràcies! 🎉</h2>
+<p>Et respondrem aviat.</p>
+<button onclick="showPage('inici')">Inici</button>
 </section>
 
-<!-- AVÍS LEGAL -->
+<!-- AVÍS LEGAL COMPLETO -->
 <section id="avis" class="page">
 <h2>Avís legal</h2>
-<p><strong>FoodLogistic S.A.</strong><br>
+
+<p><strong>Responsable del tractament:</strong><br>
+FoodLogistic S.A.<br>
 NIF: A08123456<br>
-Adreça: Mataró, Barcelona<br>
-Email: info@foodlogistic.com<br>
-Tel: +34 935 55 55 55</p>
-</section>
+Adreça: Carrer de la Teixidora, núm. 13, 08302 Mataró (Barcelona)<br>
+Correu electrònic: info@foodlogistic.com<br>
+Telèfon: +34 935 55 55 55</p>
 
-<!-- PRIVACITAT -->
-<section id="privacitat" class="page">
-<h2>Privacitat</h2>
-<p>Les dades es tracten amb consentiment i no es comparteixen.</p>
-</section>
+<br>
 
-<!-- COOKIES -->
-<section id="cookies" class="page">
-<h2>Cookies</h2>
-<p>Utilitzem cookies tècniques, analítiques i màrqueting.</p>
+<p><strong>Finalitat del tractament:</strong><br>
+Les dades personals facilitades a través d’aquest lloc web seran utilitzades per gestionar les consultes realitzades pels usuaris, així com per oferir serveis relacionats amb l’activitat de l’empresa.</p>
+
+<br>
+
+<p><strong>Legitimació:</strong><br>
+La base legal per al tractament de les dades és el consentiment de l’usuari, que s’atorga mitjançant l’acceptació de la política de privacitat.</p>
+
+<br>
+
+<p><strong>Drets dels interessats:</strong><br>
+L’usuari pot exercir els seus drets d’accés, rectificació, supressió, oposició, limitació del tractament i portabilitat de les dades (drets ARSLOP) enviant una sol·licitud al correu electrònic info@foodlogistic.com.</p>
+
+<br>
+
+<p><strong>Mesures de seguretat:</strong><br>
+FoodLogistic S.A. aplica les mesures tècniques i organitzatives necessàries per garantir la seguretat, integritat i confidencialitat de les dades personals, evitant la seva alteració, pèrdua o accés no autoritzat.</p>
+
 </section>
 
 <div id="cookieBanner" class="cookie-banner">
-<p>Utilitzem cookies 🍪</p>
-<button onclick="saveCookies()">Acceptar</button>
+<p><strong>Aquest lloc utilitza cookies 🍪</strong></p>
+
+<label><input type="checkbox" checked disabled> Necessàries</label><br>
+<label><input type="checkbox"> Analítiques</label><br>
+<label><input type="checkbox"> Màrqueting</label>
+
+<div>
+<button onclick="saveCookiePreferences()">Acceptar</button>
 <button onclick="rejectCookies()">Rebutjar</button>
+</div>
 </div>
 
 <footer>© 2026 FoodLogistic S.A.</footer>
@@ -211,19 +146,10 @@ document.getElementById(id).classList.add('active');
 }
 
 function enviarFormulari(){
+const inputs=document.querySelectorAll('#contacte input, #contacte textarea');
+for(let i of inputs){if(!i.value.trim()){alert("Omple tots els camps");return;}}
 
-let nom=document.getElementById("nom").value.trim();
-let email=document.getElementById("email").value.trim();
-let tel=document.getElementById("telefon").value.trim();
-let msg=document.getElementById("missatge").value.trim();
-let priv=document.getElementById("privacitat").checked;
-
-if(!nom || !email || !tel || !msg){
-alert("Omple tots els camps");
-return;
-}
-
-if(!priv){
+if(!document.getElementById("privacitat").checked){
 alert("Accepta la política de privacitat");
 return;
 }
@@ -231,12 +157,13 @@ return;
 showPage('gracies');
 }
 
-function saveCookies(){
-localStorage.setItem("cookies","ok");
+function saveCookiePreferences(){
+localStorage.setItem("cookiesAccepted","true");
 document.getElementById("cookieBanner").style.display="none";
 }
 
 function rejectCookies(){
+localStorage.setItem("cookiesAccepted","false");
 document.getElementById("cookieBanner").style.display="none";
 }
 </script>
