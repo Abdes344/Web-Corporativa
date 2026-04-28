@@ -169,10 +169,20 @@ footer{position:fixed;bottom:0;width:100%;text-align:center;font-size:12px;}
 Accepto la política de privacitat
 </label>
 
+<!-- AFEGIT: ENLLAÇ A POLÍTICA DE PRIVACITAT -->
+<p style="font-size:12px;">
+<a href="#avis" style="color:cyan;">Veure política de privacitat</a>
+</p>
+
 <label style="font-size:12px;display:block;">
 <input type="checkbox" id="comercial">
 Accepto comunicacions comercials
 </label>
+
+<!-- AFEGIT: ENLLAÇ AVÍS LEGAL -->
+<p style="font-size:12px;">
+<a href="#avis" style="color:cyan;">Veure avís legal</a>
+</p>
 
 <button onclick="enviarFormulari()">Enviar ✉️</button>
 </section>
@@ -183,19 +193,15 @@ Accepto comunicacions comercials
 <button onclick="showPage('inici')">Inici</button>
 </section>
 
-<!-- ✅ AVÍS LEGAL COMPLET -->
 <section id="avis" class="page">
 <h2>Avís legal</h2>
 <p>FoodLogistic S.A. - NIF A08123456 - Mataró (Barcelona)</p>
 
-  
 <p><strong>Avís Legal:</strong> Cal crear i enllaçar una pàgina d'avís legal on s'informi de la identitat del responsable del tractament de les dades, la finalitat del tractament, els drets dels interessats i les mesures de seguretat adoptades.</p>
 
-  
-<p><strong>Política de Privacitat:</strong> Cal incloure un apartat detallat que expliqui les bases legals del tractament, els destinataris de les dades, el temps de conservació i com exercir els drets ARSLOP (accés, rectificació, supressió, oposició, limitació i portabilitat).</p>
+<p><strong>Política de Privacitat:</strong> Cal incloure un apartat detallat que expliqui les bases legals del tractament, els destinataris de les dades, el temps de conservació i com exercir els drets ARSLOP.</p>
 
-  
-<p><strong>Política de Cookies:</strong> Cal informar de quines cookies s'utilitzen, la seva finalitat, durada i com acceptar-les o rebutjar-les.</p>
+<p><strong>Política de Cookies:</strong> Cal informar de quines cookies s'utilitzen.</p>
 </section>
 
 <div id="cookieBanner" class="cookie-banner">
@@ -229,6 +235,21 @@ return;
 
 showPage('gracies');
 }
+</script>
+
+<!-- AFEGIT: GUARDAR CONSENTIMENT COOKIES -->
+<script>
+if(localStorage.getItem("cookies") === "accepted"){
+document.getElementById("cookieBanner").style.display = "none";
+}
+
+document.querySelector(".cookie-banner button:first-child").addEventListener("click", function(){
+localStorage.setItem("cookies","accepted");
+});
+
+document.querySelector(".cookie-banner button:last-child").addEventListener("click", function(){
+localStorage.setItem("cookies","rejected");
+});
 </script>
 
 </body>
