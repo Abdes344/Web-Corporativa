@@ -9,20 +9,90 @@
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
 body{background:black url('https://www.transparenttextures.com/patterns/stardust.png');color:white;overflow-x:hidden;}
-header{position:fixed;top:0;width:100%;display:flex;justify-content:space-between;align-items:center;padding:15px 30px;background:rgba(0,0,0,0.8);z-index:10;}
+
+header{
+position:fixed;
+top:0;
+width:100%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:15px 30px;
+background:rgba(0,0,0,0.8);
+z-index:10;
+}
+
 .logo{display:flex;align-items:center;gap:10px;font-size:20px;font-weight:600;}
 .logo span::before{content:"🌱";}
+
 nav{display:flex;gap:25px;}
 nav a{color:white;text-decoration:none;padding:8px 15px;transition:0.3s;cursor:pointer;}
 nav a:hover{border:1px solid cyan;color:cyan;}
-.page{display:none;min-height:100vh;justify-content:center;align-items:center;flex-direction:column;text-align:center;padding:90px 20px 60px;opacity:0;transform:translateY(30px);transition:all 0.6s ease;}
+
+.page{
+display:none;
+min-height:100vh;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+text-align:center;
+padding:90px 20px 60px;
+opacity:0;
+transform:translateY(30px);
+transition:all 0.6s ease;
+}
+
 .page.active{display:flex;opacity:1;transform:translateY(0);}
+
 h1{font-size:3.5em;}
 h2{font-size:2.5em;margin-bottom:20px;}
 p{font-size:1.1em;max-width:800px;line-height:1.6;}
-.services{display:flex;gap:20px;flex-wrap:wrap;justify-content:center;margin-top:20px;}
-.card{background:rgba(255,255,255,0.05);padding:20px;border-radius:10px;width:200px;transition:0.3s;font-size:1.3em;}
-.card:hover{border:1px solid cyan;transform:scale(1.05);}
+
+.services{
+display:flex;
+gap:20px;
+flex-wrap:wrap;
+justify-content:center;
+margin-top:20px;
+}
+
+/* 🔥 SER PRO CARDS */
+.card{
+background:rgba(255,255,255,0.05);
+backdrop-filter: blur(10px);
+padding:15px;
+border-radius:15px;
+width:220px;
+transition:0.4s;
+border:1px solid rgba(255,255,255,0.1);
+text-align:center;
+overflow:hidden;
+}
+
+.card img{
+width:100%;
+height:130px;
+object-fit:cover;
+border-radius:10px;
+margin-bottom:10px;
+}
+
+.card h3{
+color:cyan;
+margin-bottom:5px;
+}
+
+.card p{
+font-size:0.9em;
+color:#ccc;
+}
+
+.card:hover{
+transform:translateY(-10px) scale(1.05);
+border:1px solid cyan;
+box-shadow:0 0 20px cyan;
+}
+
 input,textarea{width:250px;margin:5px;padding:8px;border-radius:5px;border:none;}
 button{padding:10px;margin-top:10px;background:cyan;border:none;cursor:pointer;}
 footer{position:fixed;bottom:0;width:100%;text-align:center;font-size:12px;}
@@ -49,13 +119,36 @@ footer{position:fixed;bottom:0;width:100%;text-align:center;font-size:12px;}
 <p>Solucions modernes i eficients en logística alimentària 🚚🌱📦✨</p>
 </section>
 
+<!-- 🔥 SERVEIS MEJORADO -->
 <section id="serveis" class="page">
 <h2>Els nostres serveis</h2>
+
 <div class="services">
-<div class="card">🚛 Transport refrigerat ❄️</div>
-<div class="card">🏭 Magatzematge intel·ligent 📦</div>
-<div class="card">🛣️ Distribució nacional 🌍</div>
-<div class="card">📡 Seguiment en temps real ⏱️</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1601584115197-04ecc0da31d7">
+<h3>Transport refrigerat ❄️</h3>
+<p>Garantim la cadena de fred en tot moment amb tecnologia avançada.</p>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d">
+<h3>Magatzematge intel·ligent 📦</h3>
+<p>Centres logístics automatitzats amb control digital en temps real.</p>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1506806732259-39c2d0268443">
+<h3>Distribució nacional 🌍</h3>
+<p>Arribem a tot el territori amb rapidesa i eficiència garantida.</p>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1580674285054-bed31e145f59">
+<h3>Seguiment en temps real ⏱️</h3>
+<p>Control total de cada enviament amb GPS i monitoratge live.</p>
+</div>
+
 </div>
 </section>
 
@@ -79,7 +172,7 @@ Accepto la política de privacitat
 
 <label style="font-size:12px;display:block;">
 <input type="checkbox" id="comercial">
-Accepto rebre comunicacions comercials
+Accepto comunicacions comercials
 </label>
 
 <button onclick="enviarFormulari()">Enviar ✉️</button>
@@ -91,50 +184,15 @@ Accepto rebre comunicacions comercials
 <button onclick="showPage('inici')">Inici</button>
 </section>
 
-<!-- AVÍS LEGAL COMPLETO -->
 <section id="avis" class="page">
 <h2>Avís legal</h2>
-
-<p><strong>Responsable del tractament:</strong><br>
-FoodLogistic S.A.<br>
-NIF: A08123456<br>
-Adreça: Carrer de la Teixidora, núm. 13, 08302 Mataró (Barcelona)<br>
-Correu electrònic: info@foodlogistic.com<br>
-Telèfon: +34 935 55 55 55</p>
-
-<br>
-
-<p><strong>Finalitat del tractament:</strong><br>
-Les dades personals facilitades a través d’aquest lloc web seran utilitzades per gestionar les consultes realitzades pels usuaris, així com per oferir serveis relacionats amb l’activitat de l’empresa.</p>
-
-<br>
-
-<p><strong>Legitimació:</strong><br>
-La base legal per al tractament de les dades és el consentiment de l’usuari, que s’atorga mitjançant l’acceptació de la política de privacitat.</p>
-
-<br>
-
-<p><strong>Drets dels interessats:</strong><br>
-L’usuari pot exercir els seus drets d’accés, rectificació, supressió, oposició, limitació del tractament i portabilitat de les dades (drets ARSLOP) enviant una sol·licitud al correu electrònic info@foodlogistic.com.</p>
-
-<br>
-
-<p><strong>Mesures de seguretat:</strong><br>
-FoodLogistic S.A. aplica les mesures tècniques i organitzatives necessàries per garantir la seguretat, integritat i confidencialitat de les dades personals, evitant la seva alteració, pèrdua o accés no autoritzat.</p>
-
+<p>FoodLogistic S.A. - NIF A08123456 - Mataró (Barcelona)</p>
 </section>
 
 <div id="cookieBanner" class="cookie-banner">
 <p><strong>Aquest lloc utilitza cookies 🍪</strong></p>
-
-<label><input type="checkbox" checked disabled> Necessàries</label><br>
-<label><input type="checkbox"> Analítiques</label><br>
-<label><input type="checkbox"> Màrqueting</label>
-
-<div>
-<button onclick="saveCookiePreferences()">Acceptar</button>
-<button onclick="rejectCookies()">Rebutjar</button>
-</div>
+<button onclick="document.getElementById('cookieBanner').style.display='none'">Acceptar</button>
+<button onclick="document.getElementById('cookieBanner').style.display='none'">Rebutjar</button>
 </div>
 
 <footer>© 2026 FoodLogistic S.A.</footer>
@@ -147,7 +205,13 @@ document.getElementById(id).classList.add('active');
 
 function enviarFormulari(){
 const inputs=document.querySelectorAll('#contacte input, #contacte textarea');
-for(let i of inputs){if(!i.value.trim()){alert("Omple tots els camps");return;}}
+
+for(let i of inputs){
+if(!i.value.trim()){
+alert("Omple tots els camps");
+return;
+}
+}
 
 if(!document.getElementById("privacitat").checked){
 alert("Accepta la política de privacitat");
@@ -155,16 +219,6 @@ return;
 }
 
 showPage('gracies');
-}
-
-function saveCookiePreferences(){
-localStorage.setItem("cookiesAccepted","true");
-document.getElementById("cookieBanner").style.display="none";
-}
-
-function rejectCookies(){
-localStorage.setItem("cookiesAccepted","false");
-document.getElementById("cookieBanner").style.display="none";
 }
 </script>
 
