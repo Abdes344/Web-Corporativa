@@ -15,7 +15,6 @@ color:white;
 overflow-x:hidden;
 }
 
-/* HEADER */
 header{
 position:fixed;
 top:0;
@@ -29,31 +28,12 @@ backdrop-filter: blur(10px);
 z-index:10;
 }
 
-.logo img{
-height:55px;
-transition:0.3s;
-}
-.logo img:hover{
-transform:scale(1.05) rotate(-2deg);
-}
+.logo img{height:55px;}
 
 nav{display:flex;gap:25px;}
+nav a{color:white;text-decoration:none;padding:8px 15px;border-radius:20px;cursor:pointer;}
+nav a:hover{background:rgba(0,255,255,0.1);color:cyan;}
 
-nav a{
-color:white;
-text-decoration:none;
-padding:8px 15px;
-transition:0.3s;
-border-radius:20px;
-}
-
-nav a:hover{
-background:rgba(0,255,255,0.1);
-color:cyan;
-box-shadow:0 0 10px cyan;
-}
-
-/* PAGES */
 .page{
 display:none;
 min-height:100vh;
@@ -67,56 +47,30 @@ transform:translateY(30px);
 transition:all 0.6s ease;
 }
 
-.page.active{
-display:flex;
-opacity:1;
-transform:translateY(0);
-}
+.page.active{display:flex;opacity:1;transform:translateY(0);}
 
-/* HERO */
 h1{
-font-size:4em;
+font-size:3.5em;
 background:linear-gradient(90deg, cyan, #00ff88);
 -webkit-background-clip:text;
 color:transparent;
-animation: glow 3s infinite alternate;
-}
-
-@keyframes glow{
-from{filter:drop-shadow(0 0 5px cyan);}
-to{filter:drop-shadow(0 0 20px #00ff88);}
 }
 
 h2{font-size:2.5em;margin-bottom:20px;}
-p{font-size:1.2em;max-width:800px;line-height:1.6;color:#ccc;}
+p{max-width:800px;color:#ccc;}
 
-/* CARDS */
-.services{
-display:flex;
-gap:20px;
-flex-wrap:wrap;
-justify-content:center;
-margin-top:30px;
-}
+.services{display:flex;gap:20px;flex-wrap:wrap;justify-content:center;margin-top:30px;}
 
 .card{
 background:rgba(255,255,255,0.05);
-backdrop-filter: blur(10px);
-padding:25px;
-border-radius:15px;
-width:220px;
-transition:0.4s;
-font-size:1.3em;
-border:1px solid rgba(255,255,255,0.1);
+padding:20px;
+border-radius:10px;
+width:200px;
+transition:0.3s;
 }
 
-.card:hover{
-transform:translateY(-10px) scale(1.05);
-border:1px solid cyan;
-box-shadow:0 0 20px cyan;
-}
+.card:hover{border:1px solid cyan;transform:scale(1.05);}
 
-/* FORM */
 input,textarea{
 width:260px;
 margin:6px;
@@ -130,48 +84,30 @@ color:white;
 button{
 padding:12px 20px;
 margin-top:15px;
-background:linear-gradient(45deg, cyan, #00ff88);
+background:cyan;
 border:none;
 cursor:pointer;
-border-radius:25px;
-font-weight:bold;
-transition:0.3s;
+border-radius:20px;
 }
 
-button:hover{
-transform:scale(1.05);
-box-shadow:0 0 15px cyan;
-}
-
-/* COOKIE */
 .cookie-banner{
 position:fixed;
 bottom:20px;
 left:50%;
 transform:translateX(-50%);
-background:#000;
+background:black;
 padding:20px;
 border:1px solid cyan;
 border-radius:10px;
 z-index:9999;
-text-align:center;
-width:340px;
 }
 
-/* FOOTER */
 footer{
 position:fixed;
 bottom:0;
 width:100%;
 text-align:center;
 font-size:12px;
-opacity:0.6;
-}
-
-/* RESPONSIVE */
-@media(max-width:768px){
-h1{font-size:2.5em;}
-nav{gap:10px;}
 }
 </style>
 </head>
@@ -194,47 +130,77 @@ nav{gap:10px;}
 
 <section id="inici" class="page active">
 <h1>FoodLogistic S.A.</h1>
-<p>Logística alimentària intel·ligent, ràpida i sostenible 🚀</p>
-
-<button onclick="showPage('contacte')">Contacta ara</button>
+<p>Logística alimentària intel·ligent 🚀</p>
 </section>
 
 <section id="serveis" class="page">
-<h2>Els nostres serveis</h2>
-
+<h2>Serveis</h2>
 <div class="services">
-<div class="card">🚛 Transport refrigerat</div>
-<div class="card">🏭 Magatzematge intel·ligent</div>
-<div class="card">🌍 Distribució nacional</div>
-<div class="card">⏱️ Tracking en temps real</div>
+<div class="card">🚛 Transport</div>
+<div class="card">📦 Magatzem</div>
+<div class="card">🌍 Distribució</div>
+<div class="card">⏱️ Tracking</div>
 </div>
 </section>
 
 <section id="sobre" class="page">
 <h2>Sobre nosaltres</h2>
-<p>Som una empresa innovadora en logística alimentària que combina tecnologia, eficiència i sostenibilitat.</p>
+<p>Empresa logística moderna i eficient.</p>
 </section>
 
 <section id="contacte" class="page">
-<h2>Contacta amb nosaltres</h2>
+<h2>Contacte</h2>
 
-<input type="text" placeholder="Nom">
-<input type="email" placeholder="Correu electrònic">
-<input type="tel" placeholder="Telèfon">
-<textarea placeholder="Missatge"></textarea>
+<input id="nom" type="text" placeholder="Nom">
+<input id="email" type="email" placeholder="Email">
+<input id="telefon" type="tel" placeholder="Telèfon">
+<textarea id="missatge" placeholder="Missatge"></textarea>
 
-<label style="font-size:12px;">
+<label>
 <input type="checkbox" id="privacitat">
-Accepto la política de privacitat
+Accepto la <a onclick="showPage('privacitat')" style="color:cyan;">política de privacitat</a>
 </label>
 
-<label style="font-size:12px;">
+<label>
 <input type="checkbox" id="comercial">
 Accepto comunicacions comercials
 </label>
 
 <button onclick="enviarFormulari()">Enviar</button>
 </section>
+
+<section id="gracies" class="page">
+<h2>Gràcies!</h2>
+<p>Missatge enviat correctament.</p>
+</section>
+
+<!-- AVÍS LEGAL -->
+<section id="avis" class="page">
+<h2>Avís legal</h2>
+<p><strong>FoodLogistic S.A.</strong><br>
+NIF: A08123456<br>
+Adreça: Mataró, Barcelona<br>
+Email: info@foodlogistic.com<br>
+Tel: +34 935 55 55 55</p>
+</section>
+
+<!-- PRIVACITAT -->
+<section id="privacitat" class="page">
+<h2>Privacitat</h2>
+<p>Les dades es tracten amb consentiment i no es comparteixen.</p>
+</section>
+
+<!-- COOKIES -->
+<section id="cookies" class="page">
+<h2>Cookies</h2>
+<p>Utilitzem cookies tècniques, analítiques i màrqueting.</p>
+</section>
+
+<div id="cookieBanner" class="cookie-banner">
+<p>Utilitzem cookies 🍪</p>
+<button onclick="saveCookies()">Acceptar</button>
+<button onclick="rejectCookies()">Rebutjar</button>
+</div>
 
 <footer>© 2026 FoodLogistic S.A.</footer>
 
@@ -245,11 +211,33 @@ document.getElementById(id).classList.add('active');
 }
 
 function enviarFormulari(){
-if(!document.getElementById("privacitat").checked){
+
+let nom=document.getElementById("nom").value.trim();
+let email=document.getElementById("email").value.trim();
+let tel=document.getElementById("telefon").value.trim();
+let msg=document.getElementById("missatge").value.trim();
+let priv=document.getElementById("privacitat").checked;
+
+if(!nom || !email || !tel || !msg){
+alert("Omple tots els camps");
+return;
+}
+
+if(!priv){
 alert("Accepta la política de privacitat");
 return;
 }
-alert("Missatge enviat!");
+
+showPage('gracies');
+}
+
+function saveCookies(){
+localStorage.setItem("cookies","ok");
+document.getElementById("cookieBanner").style.display="none";
+}
+
+function rejectCookies(){
+document.getElementById("cookieBanner").style.display="none";
 }
 </script>
 
