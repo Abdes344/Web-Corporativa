@@ -46,6 +46,7 @@ transition:all 0.6s ease;
 
 h1{font-size:3.5em;}
 h2{font-size:2.5em;margin-bottom:20px;}
+h3{color:cyan; margin: 20px 0 10px 0; text-align: left;}
 p{font-size:1.1em;max-width:800px;line-height:1.6;}
 
 .services{
@@ -80,6 +81,7 @@ margin-bottom:10px;
 .card h3{
 color:cyan;
 margin-bottom:5px;
+text-align: center;
 }
 
 .card p{
@@ -94,10 +96,17 @@ box-shadow:0 0 20px cyan;
 }
 
 input,textarea{width:250px;margin:5px;padding:8px;border-radius:5px;border:none;}
-button{padding:10px;margin-top:10px;background:cyan;border:none;cursor:pointer;}
-footer{position:fixed;bottom:0;width:100%;text-align:center;font-size:12px;}
+button{padding:10px;margin-top:10px;background:cyan;border:none;cursor:pointer;font-weight: bold;}
+footer{position:fixed;bottom:0;width:100%;text-align:center;font-size:12px; background: rgba(0,0,0,0.9); padding: 5px 0;}
 .cookie-banner{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:black;padding:20px;border:1px solid cyan;border-radius:10px;z-index:9999;text-align:center;width:340px;}
 .cookie-banner button{margin:5px;}
+
+/* Taula de cookies */
+table { width: 100%; border-collapse: collapse; margin-top: 10px; color: #ccc; font-size: 0.9em;}
+th, td { border: 1px solid #444; padding: 8px; text-align: left; }
+th { background: rgba(0, 255, 255, 0.1); color: cyan; }
+
+.legal-content { text-align: left; max-width: 800px; background: rgba(255,255,255,0.05); padding: 30px; border-radius: 15px; margin-bottom: 50px;}
 </style>
 </head>
 
@@ -116,62 +125,47 @@ footer{position:fixed;bottom:0;width:100%;text-align:center;font-size:12px;}
 
 <section id="inici" class="page active">
 <h1>FoodLogistic S.A.</h1>
-<p> Solucions innovadores i eficients en logística alimentària 🚚🌱📦✨
-
-Som una empresa dedicada a la logística alimentària, enfocada a oferir un servei ràpid, segur i de qualitat en el transport i la distribució de productes.
-
+<p> Solucions innovadores i eficients en logística alimentària 🚚🌱📦✨<br><br>
+Som una empresa dedicada a la logística alimentària, enfocada a oferir un servei ràpid, segur i de qualitat en el transport i la distribució de productes.<br><br>
 Treballem amb tecnologia avançada i sistemes de control en temps real per garantir que cada enviament arribi en perfectes condicions ❄️📦
-
-El nostre objectiu és oferir un servei fiable, eficient i adaptat a les necessitats dels nostres clients 🤝
 </p>
 </section>
 
 <section id="serveis" class="page">
 <h2>Els nostres serveis</h2>
-
 <div class="services">
-
 <div class="card">
 <img src="https://images.unsplash.com/photo-1601584115197-04ecc0da31d7">
 <h3>Transport refrigerat ❄️</h3>
 <p>Garantim la cadena de fred en tot moment amb tecnologia avançada.</p>
 </div>
-
 <div class="card">
 <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d">
 <h3>Magatzematge intel·ligent 📦</h3>
 <p>Centres logístics automatitzats amb control digital en temps real.</p>
 </div>
-
 <div class="card">
 <img src="https://images.unsplash.com/photo-1506806732259-39c2d0268443">
 <h3>Distribució nacional 🌍</h3>
 <p>Arribem a tot el territori amb rapidesa i eficiència garantida.</p>
 </div>
-
 <div class="card">
 <img src="https://images.unsplash.com/photo-1580674285054-bed31e145f59">
-<h3>Seguiment en temps real ⏱️</h3>
+<h3>Seguiment ⏱️</h3>
 <p>Control total de cada enviament amb GPS i monitoratge live.</p>
 </div>
-
 </div>
 </section>
 
 <section id="sobre" class="page">
 <h2>Sobre nosaltres</h2>
-<p>FoodLogistic S.A. és una empresa especialitzada en logística alimentària 🚚❄️, dedicada a oferir solucions eficients, segures i sostenibles 🌱 per al transport i la distribució de productes.
-
-Disposem de tecnologia avançada 📡, transport refrigerat ❄️ i sistemes de seguiment en temps real ⏱️ per garantir la qualitat i la seguretat dels aliments durant tot el procés.
-
-El nostre objectiu és optimitzar la cadena de subministrament 📦 i oferir un servei fiable i adaptat a les necessitats dels nostres clients 🤝.
-
+<p>FoodLogistic S.A. és una empresa especialitzada en logística alimentària 🚚❄️, dedicada a oferir solucions eficients, segures i sostenibles 🌱 per al transport i la distribució de productes.<br><br>
+Disposem de tecnologia avançada 📡 i sistemes de seguiment en temps real ⏱️ per garantir la seguretat dels aliments durant tot el procés.
 </p>
 </section>
 
 <section id="contacte" class="page">
 <h2>Contacta amb nosaltres</h2>
-
 <input type="text" placeholder="Nom">
 <input type="email" placeholder="Correu electrònic">
 <input type="tel" placeholder="Telèfon">
@@ -181,21 +175,12 @@ El nostre objectiu és optimitzar la cadena de subministrament 📦 i oferir un 
 <input type="checkbox" id="privacitat" required>
 Accepto la política de privacitat
 </label>
-
-<!-- AFEGIT: ENLLAÇ A POLÍTICA DE PRIVACITAT -->
-<p style="font-size:12px;">
-<a href="#avis" style="color:cyan;">Veure política de privacitat</a>
-</p>
+<p style="font-size:12px;"><a onclick="showPage('avis')" style="color:cyan; cursor:pointer;">Veure política de privacitat</a></p>
 
 <label style="font-size:12px;display:block;">
 <input type="checkbox" id="comercial">
 Accepto comunicacions comercials
 </label>
-
-<!-- AFEGIT: ENLLAÇ AVÍS LEGAL -->
-<p style="font-size:12px;">
-<a href="#avis" style="color:cyan;">Veure avís legal</a>
-</p>
 
 <button onclick="enviarFormulari()">Enviar ✉️</button>
 </section>
@@ -207,62 +192,89 @@ Accepto comunicacions comercials
 </section>
 
 <section id="avis" class="page">
-<h2>Avís legal</h2>
-<p>FoodLogistic S.A. - NIF A08123456 - Mataró (Barcelona)</p>
+    <h2>Informació Legal</h2>
+    <div class="legal-content">
+        <h3>1. Avís Legal (LSSI)</h3>
+        <p>En compliment de l'article 10 de la Llei 34/2002, d'11 de juliol, de Serveis de la Societat de la Informació i Comerç Electrònic (LSSI-CE), s'exposen les dades identificatives de l'empresa:</p>
+        <p><strong>Titular:</strong> FoodLogistic S.A.<br>
+        <strong>NIF:</strong> A08123456<br>
+        <strong>Adreça:</strong> Polígon Industrial Pla d'en Boet, 08302 Mataró (Barcelona)<br>
+        <strong>Correu:</strong> info@foodlogistic.cat</p>
 
-<p><strong>Avís Legal:</strong> Cal crear i enllaçar una pàgina d'avís legal on s'informi de la identitat del responsable del tractament de les dades, la finalitat del tractament, els drets dels interessats i les mesures de seguretat adoptades.</p>
+        <h3>2. Política de Privacitat (RGPD)</h3>
+        <p>Responsable del Tractament: FoodLogistic S.A. La finalitat és la gestió de les comunicacions amb els clients i interessats. Les dades es conservaran mentre hi hagi un interès mutu o obligació legal.</p>
+        <p><strong>Drets ARSLOP:</strong> Vostè té dret a l'accés, rectificació, supressió, limitació, oposició i portabilitat de les seves dades. Pot exercir-los enviant un correu a l'adreça dalt indicada amb una còpia del seu DNI.</p>
 
-<p><strong>Política de Privacitat:</strong> Cal incloure un apartat detallat que expliqui les bases legals del tractament, els destinataris de les dades, el temps de conservació i com exercir els drets ARSLOP.</p>
-
-<p><strong>Política de Cookies:</strong> Cal informar de quines cookies s'utilitzen.</p>
+        <h3>3. Política de Cookies</h3>
+        <p>Utilitzem cookies per millorar la navegació. A continuació detallem les cookies utilitzades en aquest lloc:</p>
+        <table>
+            <tr>
+                <th>Nom</th>
+                <th>Tipus</th>
+                <th>Finalitat</th>
+            </tr>
+            <tr>
+                <td>cookies_cons</td>
+                <td>Tècnica</td>
+                <td>Emmagatzema el consentiment de l'usuari sobre les cookies.</td>
+            </tr>
+            <tr>
+                <td>_ga</td>
+                <td>Analítica</td>
+                <td>Google Analytics: Estadística anònima de visites.</td>
+            </tr>
+        </table>
+    </div>
+    <button onclick="showPage('inici')">Torna a l'Inici</button>
 </section>
 
 <div id="cookieBanner" class="cookie-banner">
 <p><strong>Aquest lloc utilitza cookies 🍪</strong></p>
-<button onclick="document.getElementById('cookieBanner').style.display='none'">Acceptar</button>
-<button onclick="document.getElementById('cookieBanner').style.display='none'">Rebutjar</button>
+<p style="font-size: 10px;">Fem servir cookies pròpies per millorar la teva experiència.</p>
+<button onclick="acceptCookies()">Acceptar</button>
+<button onclick="rejectCookies()">Rebutjar</button>
 </div>
 
-<footer>© 2026 FoodLogistic S.A.</footer>
+<footer>© 2026 FoodLogistic S.A. - Tots els drets reservats.</footer>
 
 <script>
 function showPage(id){
-document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
-document.getElementById(id).classList.add('active');
+    document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+    const target = document.getElementById(id);
+    target.style.display = 'flex';
+    setTimeout(() => target.classList.add('active'), 50);
+    window.scrollTo(0,0);
 }
 
 function enviarFormulari(){
-const inputs=document.querySelectorAll('#contacte input, #contacte textarea');
-
-for(let i of inputs){
-if(!i.value.trim()){
-alert("Omple tots els camps");
-return;
-}
-}
-
-if(!document.getElementById("privacitat").checked){
-alert("Accepta la política de privacitat");
-return;
-}
-
-showPage('gracies');
-}
-</script>
-
-<!-- AFEGIT: GUARDAR CONSENTIMENT COOKIES -->
-<script>
-if(localStorage.getItem("cookies") === "accepted"){
-document.getElementById("cookieBanner").style.display = "none";
+    const inputs=document.querySelectorAll('#contacte input, #contacte textarea');
+    for(let i of inputs){
+        if(!i.value.trim() && i.type !== 'checkbox'){
+            alert("Omple tots els camps");
+            return;
+        }
+    }
+    if(!document.getElementById("privacitat").checked){
+        alert("Has d'acceptar la política de privacitat");
+        return;
+    }
+    showPage('gracies');
 }
 
-document.querySelector(".cookie-banner button:first-child").addEventListener("click", function(){
-localStorage.setItem("cookies","accepted");
-});
+// GESTIÓ DE COOKIES
+if(localStorage.getItem("cookies") === "accepted" || localStorage.getItem("cookies") === "rejected"){
+    document.getElementById("cookieBanner").style.display = "none";
+}
 
-document.querySelector(".cookie-banner button:last-child").addEventListener("click", function(){
-localStorage.setItem("cookies","rejected");
-});
+function acceptCookies(){
+    localStorage.setItem("cookies","accepted");
+    document.getElementById("cookieBanner").style.display = "none";
+}
+
+function rejectCookies(){
+    localStorage.setItem("cookies","rejected");
+    document.getElementById("cookieBanner").style.display = "none";
+}
 </script>
 
 </body>
