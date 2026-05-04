@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>FoodLogistic S.A.</title>
+<title>FoodLogistic S.A. | Logística Alimentària</title>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
 
 <style>
@@ -18,16 +18,18 @@ display:flex;
 justify-content:space-between;
 align-items:center;
 padding:15px 30px;
-background:rgba(0,0,0,0.8);
+background:rgba(0,0,0,0.9);
+backdrop-filter: blur(5px);
 z-index:10;
+border-bottom: 1px solid rgba(0,255,255,0.2);
 }
 
 .logo{display:flex;align-items:center;gap:10px;font-size:20px;font-weight:600;}
 .logo span::before{content:"🌱";}
 
 nav{display:flex;gap:25px;}
-nav a{color:white;text-decoration:none;padding:8px 15px;transition:0.3s;cursor:pointer;}
-nav a:hover{border:1px solid cyan;color:cyan;}
+nav a{color:white;text-decoration:none;padding:8px 15px;transition:0.3s;cursor:pointer;font-size: 0.9em;}
+nav a:hover{color:cyan; text-shadow: 0 0 10px cyan;}
 
 .page{
 display:none;
@@ -36,18 +38,18 @@ justify-content:center;
 align-items:center;
 flex-direction:column;
 text-align:center;
-padding:90px 20px 60px;
+padding:100px 20px 80px;
 opacity:0;
-transform:translateY(30px);
-transition:all 0.6s ease;
+transform:translateY(20px);
+transition:all 0.5s ease;
 }
 
 .page.active{display:flex;opacity:1;transform:translateY(0);}
 
-h1{font-size:3.5em;}
-h2{font-size:2.5em;margin-bottom:20px;}
-h3{color:cyan; margin: 20px 0 10px 0; text-align: left;}
-p{font-size:1.1em;max-width:800px;line-height:1.6;}
+h1{font-size:3.5em; margin-bottom: 10px;}
+h2{font-size:2.5em;margin-bottom:20px; color: cyan;}
+h3{color:cyan; margin: 25px 0 10px 0; text-align: left; font-size: 1.4em;}
+p{font-size:1.1em;max-width:850px;line-height:1.6; color: #e0e0e0;}
 
 .services{
 display:flex;
@@ -57,7 +59,6 @@ justify-content:center;
 margin-top:20px;
 }
 
-/* 🔥 SER PRO CARDS */
 .card{
 background:rgba(255,255,255,0.05);
 backdrop-filter: blur(10px);
@@ -67,7 +68,6 @@ width:220px;
 transition:0.4s;
 border:1px solid rgba(255,255,255,0.1);
 text-align:center;
-overflow:hidden;
 }
 
 .card img{
@@ -82,37 +82,56 @@ margin-bottom:10px;
 color:cyan;
 margin-bottom:5px;
 text-align: center;
+font-size: 1.1em;
 }
 
 .card p{
-font-size:0.9em;
+font-size:0.85em;
 color:#ccc;
 }
 
 .card:hover{
-transform:translateY(-10px) scale(1.05);
+transform:translateY(-10px);
 border:1px solid cyan;
-box-shadow:0 0 20px cyan;
+box-shadow:0 0 20px rgba(0,255,255,0.3);
 }
 
-input,textarea{width:250px;margin:5px;padding:8px;border-radius:5px;border:none;}
-button{padding:10px;margin-top:10px;background:cyan;border:none;cursor:pointer;font-weight: bold;}
-footer{position:fixed;bottom:0;width:100%;text-align:center;font-size:12px; background: rgba(0,0,0,0.9); padding: 5px 0;}
-.cookie-banner{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:black;padding:20px;border:1px solid cyan;border-radius:10px;z-index:9999;text-align:center;width:340px;}
-.cookie-banner button{margin:5px;}
+.contact-form{
+display: flex;
+flex-direction: column;
+align-items: center;
+gap: 10px;
+}
 
-/* Taula de cookies */
-table { width: 100%; border-collapse: collapse; margin-top: 10px; color: #ccc; font-size: 0.9em;}
-th, td { border: 1px solid #444; padding: 8px; text-align: left; }
+input,textarea{width:300px; padding:12px; border-radius:5px; border:1px solid #444; background: rgba(255,255,255,0.1); color: white;}
+textarea{height: 100px; resize: none;}
+button{padding:12px 30px; background:cyan; border:none; cursor:pointer; font-weight: bold; border-radius: 5px; transition: 0.3s;}
+button:hover{background: #00cccc; transform: scale(1.05);}
+
+.legal-box {
+    text-align: left; 
+    max-width: 900px; 
+    background: rgba(20,20,20,0.8); 
+    padding: 40px; 
+    border-radius: 15px; 
+    border: 1px solid #333;
+    margin-bottom: 40px;
+}
+
+table { width: 100%; border-collapse: collapse; margin: 20px 0; color: #ccc; }
+th, td { border: 1px solid #444; padding: 12px; text-align: left; }
 th { background: rgba(0, 255, 255, 0.1); color: cyan; }
 
-.legal-content { text-align: left; max-width: 800px; background: rgba(255,255,255,0.05); padding: 30px; border-radius: 15px; margin-bottom: 50px;}
+footer{position:fixed;bottom:0;width:100%;text-align:center;font-size:11px; background: rgba(0,0,0,0.9); padding: 8px 0; border-top: 1px solid #222;}
+
+.cookie-banner{position:fixed;bottom:30px;left:50%;transform:translateX(-50%);background:rgba(10,10,10,0.95);padding:25px;border:1px solid cyan;border-radius:15px;z-index:9999;text-align:center;width:380px; box-shadow: 0 0 30px rgba(0,0,0,1);}
 </style>
 </head>
 
 <body>
 
 <header>
+<div class="logo"><span>FoodLogistic</span></div>
 <nav>
 <a onclick="showPage('inici')">Inici</a>
 <a onclick="showPage('serveis')">Serveis</a>
@@ -120,126 +139,104 @@ th { background: rgba(0, 255, 255, 0.1); color: cyan; }
 <a onclick="showPage('contacte')">Contacte</a>
 <a onclick="showPage('avis')">Avís legal</a>
 </nav>
-<div class="logo"><span>FoodLogistic</span></div>
 </header>
 
 <section id="inici" class="page active">
 <h1>FoodLogistic S.A.</h1>
-<p> Solucions innovadores i eficients en logística alimentària 🚚🌱📦✨<br><br>
-Som una empresa dedicada a la logística alimentària, enfocada a oferir un servei ràpid, segur i de qualitat en el transport i la distribució de productes.<br><br>
-Treballem amb tecnologia avançada i sistemes de control en temps real per garantir que cada enviament arribi en perfectes condicions ❄️📦
-</p>
+<p>Líders en logística alimentària amb una facturació de 25M€ anuals. <br>Tecnologia, seguretat i eficiència en cada quilòmetre.</p>
+<button onclick="showPage('serveis')" style="margin-top: 20px;">Descobreix els nostres serveis</button>
 </section>
 
 <section id="serveis" class="page">
-<h2>Els nostres serveis</h2>
+<h2>Serveis Professionals</h2>
 <div class="services">
 <div class="card">
 <img src="https://images.unsplash.com/photo-1601584115197-04ecc0da31d7">
-<h3>Transport refrigerat ❄️</h3>
-<p>Garantim la cadena de fred en tot moment amb tecnologia avançada.</p>
+<h3>Transport ❄️</h3>
+<p>Cadena de fred garantida per a productes frescos i congelats.</p>
 </div>
 <div class="card">
 <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d">
-<h3>Magatzematge intel·ligent 📦</h3>
-<p>Centres logístics automatitzats amb control digital en temps real.</p>
+<h3>Magatzem 📦</h3>
+<p>Més de 5.000m² de logística intel·ligent i automatitzada.</p>
 </div>
 <div class="card">
 <img src="https://images.unsplash.com/photo-1506806732259-39c2d0268443">
-<h3>Distribució nacional 🌍</h3>
-<p>Arribem a tot el territori amb rapidesa i eficiència garantida.</p>
-</div>
-<div class="card">
-<img src="https://images.unsplash.com/photo-1580674285054-bed31e145f59">
-<h3>Seguiment ⏱️</h3>
-<p>Control total de cada enviament amb GPS i monitoratge live.</p>
+<h3>Distribució 🌍</h3>
+<p>Xarxa nacional i capil·laritat en l'última milla.</p>
 </div>
 </div>
 </section>
 
 <section id="sobre" class="page">
-<h2>Sobre nosaltres</h2>
-<p>FoodLogistic S.A. és una empresa especialitzada en logística alimentària 🚚❄️, dedicada a oferir solucions eficients, segures i sostenibles 🌱 per al transport i la distribució de productes.<br><br>
-Disposem de tecnologia avançada 📡 i sistemes de seguiment en temps real ⏱️ per garantir la seguretat dels aliments durant tot el procés.
-</p>
+<h2>Sobre Nosaltres</h2>
+<p>Amb un equip de <strong>35 professionals</strong> altament qualificats, a FoodLogistic S.A. ens hem consolidat com un referent al sector des de la nostra seu a Mataró. <br><br>
+Ens especialitzem a optimitzar processos logístics per a grans superfícies i productors locals, garantint sempre la màxima seguretat alimentària.</p>
 </section>
 
 <section id="contacte" class="page">
-<h2>Contacta amb nosaltres</h2>
-<input type="text" placeholder="Nom">
-<input type="email" placeholder="Correu electrònic">
-<input type="tel" placeholder="Telèfon">
-<textarea placeholder="Missatge"></textarea>
-
-<label style="font-size:12px;display:block;margin-top:10px;">
-<input type="checkbox" id="privacitat" required>
-Accepto la política de privacitat
-</label>
-<p style="font-size:12px;"><a onclick="showPage('avis')" style="color:cyan; cursor:pointer;">Veure política de privacitat</a></p>
-
-<label style="font-size:12px;display:block;">
-<input type="checkbox" id="comercial">
-Accepto comunicacions comercials
-</label>
-
-<button onclick="enviarFormulari()">Enviar ✉️</button>
+<h2>Contacte</h2>
+<div class="contact-form">
+    <input type="text" placeholder="Nom">
+    <input type="email" placeholder="Correu electrònic">
+    <textarea placeholder="Com et podem ajudar?"></textarea>
+    <label style="font-size:12px; margin: 10px 0;">
+        <input type="checkbox" id="privacitat"> Accepto la <span onclick="showPage('avis')" style="color:cyan; cursor:pointer; text-decoration:underline;">política de privacitat</span>
+    </label>
+    <button onclick="enviarFormulari()">Enviar missatge</button>
+</div>
 </section>
 
 <section id="gracies" class="page">
-<h2>Gràcies! 🎉</h2>
-<p>Et respondrem aviat.</p>
-<button onclick="showPage('inici')">Inici</button>
+<h2>Missatge enviat! 🎉</h2>
+<p>Gràcies per contactar amb FoodLogistic S.A. El nostre equip es posarà en contacte amb tu en un màxim de 24 hores.</p>
+<button onclick="showPage('inici')">Torna a l'Inici</button>
 </section>
 
 <section id="avis" class="page">
-    <h2>Informació Legal</h2>
-    <div class="legal-content">
-        <h3>1. Avís Legal (LSSI)</h3>
-        <p>En compliment de l'article 10 de la Llei 34/2002, d'11 de juliol, de Serveis de la Societat de la Informació i Comerç Electrònic (LSSI-CE), s'exposen les dades identificatives de l'empresa:</p>
-        <p><strong>Titular:</strong> FoodLogistic S.A.<br>
-        <strong>NIF:</strong> A08123456<br>
-        <strong>Adreça:</strong> Polígon Industrial Pla d'en Boet, 08302 Mataró (Barcelona)<br>
-        <strong>Correu:</strong> info@foodlogistic.cat</p>
+    <h2>Informació Legal i Privacitat</h2>
+    <div class="legal-box">
+        <h3>1. Identitat del Titular</h3>
+        <p>
+            <strong>Raó Social:</strong> FoodLogistic S.A.<br>
+            <strong>NIF:</strong> A08123456<br>
+            <strong>Adreça:</strong> Carrer de la Teixidora, núm. 13, 08302 Mataró (Barcelona)<br>
+            <strong>Telèfon:</strong> +34 935 55 55 55<br>
+            <strong>Email:</strong> info@foodlogistic.com<br>
+            <strong>Dades Registrals:</strong> Inscrita al Registre Mercantil de Barcelona, Tom 45678, Foli 120, Full B-567890, Inscripció 1a.
+        </p>
 
         <h3>2. Política de Privacitat (RGPD)</h3>
-        <p>Responsable del Tractament: FoodLogistic S.A. La finalitat és la gestió de les comunicacions amb els clients i interessats. Les dades es conservaran mentre hi hagi un interès mutu o obligació legal.</p>
-        <p><strong>Drets ARSLOP:</strong> Vostè té dret a l'accés, rectificació, supressió, limitació, oposició i portabilitat de les seves dades. Pot exercir-los enviant un correu a l'adreça dalt indicada amb una còpia del seu DNI.</p>
+        <p>En compliment del Reglament (UE) 2016/679, l'informem que les seves dades personals seran tractades per FoodLogistic S.A. per gestionar la seva sol·licitud.</p>
+        <p><strong>Drets de l'usuari:</strong> Teniu dret a l'accés, rectificació, supressió (dret a l'oblit), oposició, limitació del tractament i portabilitat. Pot exercir aquests drets enviant un correu electrònic a <strong>info@foodlogistic.com</strong> adjuntant una fotocòpia del seu DNI.</p>
 
         <h3>3. Política de Cookies</h3>
-        <p>Utilitzem cookies per millorar la navegació. A continuació detallem les cookies utilitzades en aquest lloc:</p>
+        <p>Aquest lloc web utilitza les següents cookies:</p>
         <table>
-            <tr>
-                <th>Nom</th>
-                <th>Tipus</th>
-                <th>Finalitat</th>
-            </tr>
-            <tr>
-                <td>cookies_cons</td>
-                <td>Tècnica</td>
-                <td>Emmagatzema el consentiment de l'usuari sobre les cookies.</td>
-            </tr>
-            <tr>
-                <td>_ga</td>
-                <td>Analítica</td>
-                <td>Google Analytics: Estadística anònima de visites.</td>
-            </tr>
+            <tr><th>Nom</th><th>Tipus</th><th>Funció</th></tr>
+            <tr><td>_ga</td><td>Tercers (Google)</td><td>Anàlisi estadística anònima de visites.</td></tr>
+            <tr><td>cookies_policy</td><td>Pròpia</td><td>Emmagatzema la teva preferència de consentiment.</td></tr>
+            <tr><td>session_id</td><td>Tècnica</td><td>Necessària per al funcionament correcte del web.</td></tr>
         </table>
     </div>
     <button onclick="showPage('inici')">Torna a l'Inici</button>
 </section>
 
 <div id="cookieBanner" class="cookie-banner">
-<p><strong>Aquest lloc utilitza cookies 🍪</strong></p>
-<p style="font-size: 10px;">Fem servir cookies pròpies per millorar la teva experiència.</p>
-<button onclick="acceptCookies()">Acceptar</button>
-<button onclick="rejectCookies()">Rebutjar</button>
+<p><strong>Consentiment de Cookies 🍪</strong></p>
+<p style="font-size: 11px; margin: 10px 0; color: #ccc;">Utilitzem cookies per assegurar que et donem la millor experiència al nostre web.</p>
+<button onclick="handleCookies('accepted')">Acceptar totes</button>
+<button onclick="handleCookies('rejected')" style="background:transparent; border:1px solid #444; color:white;">Rebutjar</button>
 </div>
 
-<footer>© 2026 FoodLogistic S.A. - Tots els drets reservats.</footer>
+<footer>© 2026 FoodLogistic S.A. | Carrer de la Teixidora, 13, Mataró | Tots els drets reservats.</footer>
 
 <script>
 function showPage(id){
-    document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+    document.querySelectorAll('.page').forEach(p => {
+        p.classList.remove('active');
+        p.style.display = 'none';
+    });
     const target = document.getElementById(id);
     target.style.display = 'flex';
     setTimeout(() => target.classList.add('active'), 50);
@@ -247,32 +244,20 @@ function showPage(id){
 }
 
 function enviarFormulari(){
-    const inputs=document.querySelectorAll('#contacte input, #contacte textarea');
-    for(let i of inputs){
-        if(!i.value.trim() && i.type !== 'checkbox'){
-            alert("Omple tots els camps");
-            return;
-        }
-    }
-    if(!document.getElementById("privacitat").checked){
-        alert("Has d'acceptar la política de privacitat");
+    const p = document.getElementById("privacitat");
+    if(!p.checked){
+        alert("Si us plau, accepta la política de privacitat.");
         return;
     }
     showPage('gracies');
 }
 
-// GESTIÓ DE COOKIES
-if(localStorage.getItem("cookies") === "accepted" || localStorage.getItem("cookies") === "rejected"){
+function handleCookies(status){
+    localStorage.setItem("cookies_status", status);
     document.getElementById("cookieBanner").style.display = "none";
 }
 
-function acceptCookies(){
-    localStorage.setItem("cookies","accepted");
-    document.getElementById("cookieBanner").style.display = "none";
-}
-
-function rejectCookies(){
-    localStorage.setItem("cookies","rejected");
+if(localStorage.getItem("cookies_status")){
     document.getElementById("cookieBanner").style.display = "none";
 }
 </script>
